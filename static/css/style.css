@@ -1,0 +1,804 @@
+:root {
+    --bg-color: #FAFAFA;
+    /* Off-White */
+    --primary-color: #ff3b3b;
+    /* Red */
+    --secondary-color: #D32F2F;
+    /* Darker Red */
+    --accent-color: #ff6666;
+    /* Lighter Red */
+    --text-color: #222222;
+    /* Dark Grey/Black Text */
+    --nav-bg: #FFFFFF;
+    /* White Nav */
+    --card-bg: #FFFFFF;
+    /* White Cards */
+    --border-color: #ff3b3b;
+    /* Red borders */
+
+    --font-header: 'Chewy', cursive;
+    --font-body: 'Balsamiq Sans', cursive;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    background-image: url('../images/medium_density_doodle_bg.png');
+    background-size: 450px;
+    /* Balanced size */
+    background-blend-mode: multiply;
+    /* Ensures lines blend well */
+    font-family: var(--font-body);
+    color: var(--text-color);
+    overflow-x: hidden;
+    position: relative;
+    line-height: 1.6;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    /* Enable Vertical Snap */
+}
+
+/* Sections Snap Alignment */
+section,
+header {
+    scroll-snap-align: start;
+    /* Snap to top of each section */
+    scroll-margin-top: 80px;
+    /* Offset for header if needed, though header is relative now */
+}
+
+
+
+/* Sections Snap Alignment */
+section,
+header {
+    scroll-snap-align: start;
+    /* Snap to top of each section */
+    scroll-margin-top: 80px;
+    /* Offset for header if needed, though header is relative now */
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-header);
+    letter-spacing: 1px;
+    color: var(--primary-color);
+}
+
+.uni-name {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    color: #222;
+    /* Professional Black/Dark Grey */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Navigation */
+.doodle-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    background-color: var(--nav-bg);
+    border-bottom: 2px solid var(--border-color);
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    /* Changed from sticky to relative */
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: -0.9rem;
+}
+
+.uni-logo {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+}
+
+.robox-logo {
+    height: 150px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    /* Negative margins to keep navbar height unchanged */
+    margin-top: -38px;
+    margin-bottom: -38px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    margin-left: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+    /* Removed rotation/scale for professionalism */
+}
+
+.btn-join {
+    background-color: var(--primary-color);
+    color: white !important;
+    padding: 0.6rem 1.5rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 12px;
+    /* Reverted to Squarish Oval */
+    box-shadow: none;
+    /* Flat design */
+    transition: background-color 0.2s;
+}
+
+.btn-join:hover {
+    background-color: var(--secondary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transform: none;
+}
+
+/* Hero Section - Split Layout */
+.hero-section {
+    min-height: 85vh;
+    /* Taller hero */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    /* Left alignment for split layout */
+    padding: 0 2rem;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    gap: 4rem;
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-campus-img {
+    max-width: 100%;
+    width: 550px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 20px 20px 0px rgba(0, 0, 0, 0.05);
+    /* Soft offset shadow/pattern match */
+    transition: transform 0.3s ease;
+    /* Aesthetic Blend: slight mask to soften edges or just clean frame */
+    border: 5px solid #fff;
+}
+
+.hero-campus-img:hover {
+    transform: scale(1.02) rotate(1deg);
+    box-shadow: 25px 25px 0px rgba(0, 0, 0, 0.08);
+}
+
+/* Float animation removed for the campus image - it should be stable */
+
+.hero-tag {
+    color: #666;
+    /* Grey instead of Red */
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    display: block;
+    font-family: var(--font-body);
+}
+
+.hero-accent-line {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--primary-color);
+    color: var(--text-color);
+    font-weight: 600;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+.accent-dot {
+    display: none;
+    /* Hide dot, utilize border */
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    line-height: 1.1;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.highlight {
+    color: var(--primary-color);
+    text-decoration: none;
+    border-bottom: none;
+    /* Clean look for the big title */
+}
+
+/* Unique Buttons - Tech/Soft Square Style */
+.btn-group {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.5rem;
+}
+
+.doodle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.9rem 2.2rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 12px;
+    /* Soft Square -> Unique from Ref */
+    transition: all 0.2s ease;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: 1px solid var(--primary-color);
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.15);
+    /* Offset shadow for pop */
+}
+
+.primary-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
+    background-color: var(--secondary-color);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 2px solid #ddd;
+    box-shadow: none;
+}
+
+.secondary-btn:hover {
+    border-color: var(--text-color);
+    background-color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Sections */
+.content-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 2rem;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+}
+
+.doodle-card {
+    background: var(--card-bg);
+    border: 2px solid #000;
+    /* Black Border to match HOD */
+    padding: 2rem;
+    width: 250px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.doodle-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    /* Red Border on Hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.doodle-card h3 {
+    color: var(--primary-color);
+}
+
+.doodle-card p {
+    color: #555;
+    /* Darker grey for text */
+}
+
+/* 3-Column Footer */
+.doodle-footer {
+    background-color: #1a1a1a;
+    /* Dark Background */
+    color: #aaa;
+    padding: 4rem 3rem 1rem 3rem;
+    margin-top: auto;
+    border-top: none;
+    scroll-snap-align: end;
+    /* Fixes footer bouncing by making it a snap target */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 3rem;
+    text-align: left;
+    /* Ensure left alignment */
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.footer-logo-img {
+    height: 35px;
+    /* Small professional logo */
+    width: auto;
+}
+
+.footer-logo h3 {
+    color: #fff;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.footer-col h3 {
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-col p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: #aaa;
+}
+
+.footer-col ul {
+    list-style: none;
+    /* No bullets */
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-col ul li a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: normal;
+    /* Standard weight */
+    margin: 0;
+}
+
+.footer-col ul li a:hover {
+    color: var(--primary-color);
+    padding-left: 5px;
+    /* Subtle movement */
+}
+
+.footer-col i {
+    color: var(--primary-color);
+    margin-right: 0.8rem;
+    font-size: 1.1rem;
+    width: 20px;
+    /* Fixed width for alignment */
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1.5rem;
+    /* Larger icons for social */
+    margin-top: 1.5rem;
+}
+
+.social-links a {
+    color: #aaa;
+    transition: all 0.2s;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 3rem;
+    border-top: 1px solid #333;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* Robot Guide - Initial Basic Styles, logic in JS */
+#guide-robot {
+    position: absolute;
+    /* Changed from fixed to absolute */
+    width: 70px;
+    z-index: 2000;
+    transition: all 0.5s ease-out;
+    cursor: pointer;
+    top: 80px;
+    left: 20px;
+    animation: gentleHover 3s ease-in-out infinite;
+}
+
+@keyframes gentleHover {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+#robot-img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.2));
+    /* Lighter shadow */
+}
+
+.speech-bubble {
+    position: absolute;
+    bottom: 110%;
+    left: 100%;
+    background: var(--card-bg);
+    border: 1px solid var(--primary-color);
+    color: var(--text-color);
+    /* Dark text */
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    /* Standard radius */
+    font-size: 0.9rem;
+    width: 150px;
+    display: none !important;
+    font-family: var(--font-body);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent var(--primary-color) transparent transparent;
+}
+
+/* Team Section Specifics */
+.team-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.team-card {
+    background: var(--card-bg);
+    border: 2px solid #000;
+    /* Black Border Default */
+    padding: 2rem 1rem;
+    width: 200px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    /* Red Border on Hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.member-avatar {
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    border: 2px solid #000;
+    /* Black Border Default */
+    border-radius: 50%;
+    margin: 0 auto 1rem auto;
+    overflow: hidden;
+    position: relative;
+    transition: border-color 0.3s ease;
+}
+
+.team-card:hover .member-avatar {
+    border-color: var(--primary-color);
+    /* Red Border on Hover */
+}
+
+.member-avatar::after {
+    content: '👤';
+    font-size: 3rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    filter: grayscale(100%);
+    /* Black/Grey Icon Default */
+    transition: filter 0.3s ease;
+}
+
+.team-card:hover .member-avatar::after {
+    filter: none;
+    /* Color (Reddish if possible, or keep natural) */
+    /* Alternatively, if using an image/icon font, change color here */
+    /* If it's a text emoji, we can't easily change it to red CSS filter sepia/hue-rotate might work but simple is better */
+    opacity: 0.8;
+}
+
+/* Force icon color change attempt for text */
+.team-card:hover .member-avatar::after {
+    filter: sepia(100%) saturate(10000%) hue-rotate(330deg);
+    /* Attempt to turn emoji Red */
+    opacity: 1;
+}
+
+.team-card h4 {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.team-card p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Identity Section */
+.identity-section {
+    position: relative;
+    padding: 6rem 2rem;
+    text-align: center;
+    background: transparent;
+    overflow: hidden;
+    background-attachment: scroll;
+    /* Reset */
+    overflow: hidden;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.identity-content h2 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+}
+
+/* Identity Section Redesign */
+.identity-section {
+    padding: 2rem 1rem;
+    /* Reduced padding significantly */
+    min-height: auto;
+    /* Remove fixed height constraint */
+}
+
+.identity-container {
+    width: 100%;
+    max-width: 1100px;
+    /* Use more width */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    /* Reduced gap */
+}
+
+/* Timeline */
+.identity-timeline {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* Better spacing control */
+    position: relative;
+    padding: 3rem 1rem;
+    margin-bottom: 2rem;
+
+    /* Background exactly behind the timeline items */
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+        url('../images/cuwholeimage.jpeg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    /* Soft shadow for lift */
+}
+
+
+
+
+.timeline-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    /* Removed background to show doodles */
+    padding: 0;
+    background: transparent;
+}
+
+.step-icon {
+    width: 55px;
+    /* Smaller Icons */
+    height: 55px;
+    background: #fff;
+    border: 3px solid #000;
+    /* Black Border */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    /* Smaller Font Icon */
+    color: var(--primary-color);
+    /* Red Icon */
+    margin-bottom: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+}
+
+.timeline-step:hover .step-icon {
+    transform: scale(1.1);
+    background: var(--primary-color);
+    /* Red Background on Hover */
+    color: #fff;
+}
+
+.timeline-step h4 {
+    margin: 0.3rem 0 0.1rem 0;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    /* Changed to Red */
+}
+
+.timeline-step p {
+    font-size: 0.85rem;
+    color: #666;
+    margin: 0;
+}
+
+.step-connector {
+    flex: 1;
+    height: 2px;
+    background-image: linear-gradient(to right, var(--primary-color) 33%, rgba(255, 255, 255, 0) 0%);
+    background-position: bottom;
+    background-size: 8px 1px;
+    background-repeat: repeat-x;
+    margin: 0 -10px 25px -10px;
+    /* Adjusted alignment for smaller icons */
+    z-index: 1;
+    opacity: 0.5;
+}
+
+/* Values Grid */
+.values-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    /* Tighter gap */
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.value-card {
+    background: var(--card-bg);
+    border: 2px solid #000;
+    /* Black Border */
+    padding: 1.5rem;
+    width: 220px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+    /* Lighter shadow */
+    transition: transform 0.3s;
+}
+
+.value-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary-color);
+    /* Red Border on Hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.12);
+}
+
+.value-card i {
+    font-size: 2rem;
+    /* Moderate Icon Size */
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+}
+
+.value-card h4 {
+    margin: 0.4rem 0;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+
+.value-card p {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Charging Station - Removed or Hidden? Keeping it but maybe hidden for now as per robot logic simplification */
+#charging-station {
+    display: none;
+}

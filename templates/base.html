@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robo-X Club</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&family=Chewy&family=Fredoka+One&family=Outfit:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <nav class="doodle-nav">
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='images/university_logo.png') }}" alt="University Logo"
+                class="uni-logo">
+            <img src="{{ url_for('static', filename='images/robox.png') }}" alt="Robo-X Logo" class="robox-logo">
+        </div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="#about">About</a>
+            <a href="#activities">Activities</a>
+            <a href="#team">Team</a>
+            <a href="#contact">Contact</a>
+            <a href="/join" class="btn-join">Join Us</a>
+        </div>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="doodle-footer">
+        <div class="footer-content">
+            <!-- Column 1: About -->
+            <div class="footer-col about-col">
+                <div class="footer-logo">
+                    <img src="{{ url_for('static', filename='images/university_logo.png') }}" alt="Logo"
+                        class="footer-logo-img">
+                    <h3>Robo-X Club</h3>
+                </div>
+                <p>Building a vibrant community of developers, innovators, and tech enthusiasts at Chandigarh
+                    University. Together, we learn, build, and grow.</p>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div class="footer-col links-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#activities">Activities</a></li>
+                    <li><a href="#team">Our Team</a></li>
+                    <li><a href="/join">Join Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Contact -->
+            <div class="footer-col contact-col">
+                <h3>Contact Info</h3>
+                <p><i class="fa-solid fa-envelope"></i> contact@roboxclub.com</p>
+                <p><i class="fa-solid fa-location-dot"></i> Chandigarh University, Unnao</p>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Robo-X Chandigarh University</p>
+        </div>
+    </footer>
+
+    <!-- The Guide Robot -->
+    <div id="guide-robot" class="robot-initial">
+        <img src="{{ url_for('static', filename='images/robox_mascot.png') }}" alt="Guide Robot" id="robot-img">
+        <div class="speech-bubble" id="robot-speech">Welcome to Robo-X!</div>
+    </div>
+
+    <!-- Charging Station -->
+    <div id="charging-station">
+        <img src="{{ url_for('static', filename='images/image-removebg-preview.png') }}" alt="Charging Station">
+    </div>
+
+    <script src="{{ url_for('static', filename='js/guide.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>

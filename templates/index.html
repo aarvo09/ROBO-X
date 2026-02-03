@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section id="home" class="hero-section">
+    <section id="home" class="hero-section">
+        <div class="hero-container">
+            <div class="hero-text">
+                <!-- Unique Tag -->
+                <span class="hero-tag">EST. 2026 • CHANDIGARH UNIVERSITY</span>
+
+                <!-- Unique Badge / Accent -->
+                <div class="hero-accent-line">
+                    <span class="accent-dot"></span> Innovating the Future of Robotics
+                </div>
+
+                <!-- Heading -->
+                <h1><span class="uni-name">Chandigarh University</span><br><span class="highlight">Robo-X Club</span>
+                </h1>
+
+                <p>Join India's premier student-run robotics community. Master cutting-edge technologies, build
+                    real-world
+                    bots,
+                    and accelerate your career in engineering.</p>
+
+                <!-- Buttons -->
+                <div class="btn-group">
+                    <a href="/join" class="doodle-btn primary-btn">Join Now <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#activities" class="doodle-btn secondary-btn">Explore Activities</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <img src="{{ url_for('static', filename='images/university_campus.png') }}"
+                    alt="Chandigarh University Campus" class="hero-campus-img">
+            </div>
+        </div>
+    </section>
+</section>
+
+<section id="about" class="identity-section">
+    <!-- Floating shapes removed -->
+    <div class="identity-content">
+        <h2>Who We Are</h2>
+        <div class="identity-container">
+            <!-- Part 1: The Journey Timeline -->
+            <div class="identity-timeline">
+                <div class="timeline-step">
+                    <div class="step-icon"><i class="fa-solid fa-book-open"></i></div>
+                    <h4>Learn</h4>
+                    <p>Master the basics.</p>
+                </div>
+                <div class="step-connector"></div>
+                <div class="timeline-step">
+                    <div class="step-icon"><i class="fa-regular fa-lightbulb"></i></div>
+                    <h4>Innovate</h4>
+                    <p>Create new solutions.</p>
+                </div>
+                <div class="step-connector"></div>
+                <div class="timeline-step">
+                    <div class="step-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                    <h4>Grow</h4>
+                    <p>Scale your potential.</p>
+                </div>
+            </div>
+
+            <!-- Part 2: Core Values -->
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fa-regular fa-lightbulb"></i>
+                    <h4>Curiosity</h4>
+                    <p>We ask "Why?" before "How?".</p>
+                </div>
+                <div class="value-card">
+                    <i class="fa-solid fa-people-group"></i>
+                    <h4>Collaboration</h4>
+                    <p>Diverse minds build better.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fa-solid fa-trophy"></i>
+                    <h4>Excellence</h4>
+                    <p>Pushing engineering limits.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="activities" class="content-section">
+    <h2>What We Do</h2>
+    <div class="card-container">
+        <div class="doodle-card">
+            <h3>Workshops</h3>
+            <p>Hands-on learning to build and code robots.</p>
+        </div>
+        <div class="doodle-card">
+            <h3>Hackathons</h3>
+            <p>Intense coding and building marathons.</p>
+        </div>
+        <div class="doodle-card">
+            <h3>Projects</h3>
+            <p>Collaborative innovations and cool tech.</p>
+        </div>
+
+    </div>
+</section>
+
+<section id="team" class="content-section alt-bg">
+    <h2>Our Team</h2>
+    <p>Meet the minds behind the machines.</p>
+    <!-- Placeholder for team members -->
+    <div class="team-visual-container">
+        <div class="team-grid">
+            <!-- HOD Sir -->
+            <div class="team-card" id="member-hod">
+                <div class="member-avatar"></div>
+                <h4>HOD Sir</h4>
+                <p>Head of Department</p>
+            </div>
+            <!-- Club Coordinator -->
+            <div class="team-card" id="member-coordinator">
+                <div class="member-avatar"></div>
+                <h4>Coordinator</h4>
+                <p>Club Coordinator</p>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+<section id="contact" class="content-section">
+    <h2>Get in Touch</h2>
+    <p>Have questions? Reach out to us!</p>
+    <a href="mailto:contact@roboxclub.com" class="doodle-btn primary-btn" id="email-btn">Email Us <i
+            class="fa-solid fa-paper-plane"></i></a>
+</section>
+
+{% endblock %}
