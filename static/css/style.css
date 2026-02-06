@@ -1334,8 +1334,58 @@ h4 {
     }
 }
 
+/* Mobile Menu */
+.hamburger-menu {
+    display: none;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
+
+    /* Navbar Mobile Layout */
+    .doodle-nav {
+        padding: 0.5rem 1rem;
+    }
+
+    .hamburger-menu {
+        display: block;
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        cursor: pointer;
+        margin-left: 1rem;
+    }
+
+    /* Hide standard links, show as dropdown when active */
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--nav-bg);
+        flex-direction: column;
+        padding: 1rem 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-bottom: 2px solid var(--border-color);
+        border-radius: 0 0 15px 15px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        margin: 0.8rem 0;
+        text-align: center;
+        width: 100%;
+        /* clickable area */
+        display: block;
+    }
+
+    .btn-join {
+        width: 80% !important;
+        margin: 0.5rem auto !important;
+    }
 
     /* Mascot Adjustments */
     #guide-robot {
@@ -1419,5 +1469,29 @@ h4 {
     .identity-container {
         flex-direction: column;
         align-items: center;
+        gap: 3rem;
+    }
+
+    /* Fix Squashed Timeline - Stack it vertically */
+    .identity-timeline {
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+    }
+
+    .step-connector {
+        width: 2px;
+        height: 30px;
+        /* Vertical line */
+        margin: 0 auto;
+        border-top: none;
+        /* Remove horizontal border if used */
+        background-color: var(--primary-color);
+        /* Ensure visible */
+    }
+
+    .timeline-step {
+        width: 100%;
+        margin: 0;
     }
 }
