@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="workshop-hero">
+    <div class="workshop-container">
+        <div class="workshop-content">
+            <span class="event-badge">Upcoming Workshop</span>
+            <h1>UAV Technology & Drone Building</h1>
+            <div class="event-meta">
+                <div class="meta-item">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <span>January 13, 2025</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Seminar Hall, Chandigarh University Unnao </span>
+                </div>
+            </div>
+
+            <div class="powered-by">
+                <p>Powered by</p>
+                <img src="{{ url_for('static', filename='images/bamboocopter.png') }}" alt="Bamboo Copter"
+                    class="partner-logo">
+            </div>
+
+            <p class="workshop-description">
+                Join us for an immersive hands-on workshop on Unmanned Aerial Vehicles (UAVs).
+                Learn the dynamics of flight, assemble your own drone, and understand the future of aviation technology.
+                This event is brought to you in collaboration with <strong>Bamboo Copter</strong>.
+            </p>
+
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjDL7UZOPmHIteSAZwzfAHIxiRXrEu8Ew8Tq4fdtg5Ugsn8Q/viewform#/"
+                class="doodle-btn primary-btn" target="_blank">Register Now <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="workshop-visual">
+            <!-- You can add a drone image here if available, or just a placeholder visual/icon -->
+            <i class="fa-solid fa-plane-up" style="font-size: 15rem; color: #eee;"></i>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -14,6 +14,8 @@
 
 <body>
 
+
+
     <nav class="doodle-nav">
         <div class="logo-container">
             <img src="{{ url_for('static', filename='images/university_logo.png') }}" alt="University Logo"
@@ -26,7 +28,32 @@
             <a href="#activities">Activities</a>
             <a href="#team">Team</a>
             <a href="#contact">Contact</a>
+
             <a href="/join" class="btn-join">Join Us</a>
+        </div>
+
+        <!-- Notification Icon (Floating below navbar) -->
+        <div class="notification-container">
+            <div class="nav-notification-icon" id="notification-icon">
+                <i class="fa-solid fa-bell"></i>
+                <span class="notification-badge">1</span>
+            </div>
+            <div class="notification-dropdown" id="notification-dropdown">
+                <div class="notification-header">
+                    <h4>Notifications</h4>
+                </div>
+                <div class="notification-body">
+                    <a href="/workshop" class="notification-link">
+                        <div class="notification-item">
+                            <i class="fa-solid fa-calendar-days"></i>
+                            <div class="notification-text">
+                                <strong>Upcoming Workshop</strong>
+                                <p>Workshop on 13 Feb in Seminar Hall</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -64,9 +91,8 @@
                 <p><i class="fa-solid fa-envelope"></i> contact@roboxclub.com</p>
                 <p><i class="fa-solid fa-location-dot"></i> Chandigarh University, Unnao</p>
                 <div class="social-links">
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/roboxclub_cu?igsh=MXIyMjVpbWlhZmo2Zw==" target="_blank"><i
+                            class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
         </div>
@@ -76,9 +102,8 @@
     </footer>
 
     <!-- The Guide Robot -->
-    <div id="guide-robot" class="robot-initial">
-        <img src="{{ url_for('static', filename='images/robox_mascot.png') }}" alt="Guide Robot" id="robot-img">
-        <div class="speech-bubble" id="robot-speech">Welcome to Robo-X!</div>
+    <div id="guide-robot">
+        <img src="{{ url_for('static', filename='images/robox_mascot_raw.png') }}" alt="Guide Robot" id="robot-img">
     </div>
 
     <!-- Charging Station -->

@@ -38,23 +38,28 @@ body {
 
 html {
     scroll-behavior: smooth;
-    /* scroll-snap-type: y mandatory; - Disabled for regular scrolling */
+    scroll-snap-type: y mandatory;
+    /* Enable Vertical Snap */
 }
 
-/* Sections Snap Alignment (Removed) */
+/* Sections Snap Alignment */
 section,
 header {
+    scroll-snap-align: start;
+    /* Snap to top of each section */
     scroll-margin-top: 80px;
+    /* Offset for header if needed, though header is relative now */
 }
 
 
 
 /* Sections Snap Alignment */
-/* Sections Snap Alignment - Disabled */
 section,
 header {
-    /* scroll-snap-align: start; */
+    scroll-snap-align: start;
+    /* Snap to top of each section */
     scroll-margin-top: 80px;
+    /* Offset for header if needed, though header is relative now */
 }
 
 h1,
@@ -75,7 +80,39 @@ h4 {
     letter-spacing: 0.5px;
 }
 
+/* Notification Icon & Dropdown */
+.notification-container {
+    position: absolute;
+    top: 100%;
+    right: 40px;
+    /* Aligned to the right */
+    margin-top: 10px;
+    z-index: 999;
+}
 
+.nav-notification-icon {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.2s, color 0.2s;
+    /* Add background to make it visible against body bg */
+    background: #fff;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-notification-icon:hover {
+    transform: scale(1.1);
+    background-color: var(--primary-color);
+    color: #fff;
+}
 
 .notification-badge {
     position: absolute;
@@ -97,13 +134,11 @@ h4 {
 /* Notification Icon & Dropdown - FAB Style */
 .notification-container {
     position: fixed;
-    bottom: 25px;
-    right: 18px;
+    bottom: 30px;
+    right: 30px;
     margin: 0;
-    z-index: 9999;
-    /* Highest priority */
-    pointer-events: auto;
-    /* Ensure clickable */
+    z-index: 1002;
+    /* Higher than mascot */
 }
 
 .nav-notification-icon {
@@ -113,9 +148,9 @@ h4 {
     position: relative;
     transition: transform 0.2s, background-color 0.2s;
     background: #fff;
-    width: 45px;
+    width: 60px;
     /* Larger FAB size */
-    height: 45px;
+    height: 60px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -128,10 +163,6 @@ h4 {
     transform: scale(1.1) rotate(15deg);
     background-color: var(--primary-color);
     color: #fff;
-}
-
-.show-notification {
-    display: block !important;
 }
 
 .notification-dropdown {
@@ -472,14 +503,12 @@ h4 {
 
 /* Sections */
 .content-section {
-    min-height: 80vh;
-    /* Reduced min-height slightly for regular scroll */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 6rem 3rem;
-    /* Increased padding */
+    padding: 4rem 2rem;
     text-align: center;
     box-sizing: border-box;
 }
@@ -519,25 +548,6 @@ h4 {
     /* Darker grey for text */
 }
 
-
-
-/* Regular Spacing for Middle Sections */
-#activities,
-#team {
-    min-height: auto;
-    padding: 6rem 2rem;
-    /* Increased spacing */
-}
-
-/* Contact Section Specifics */
-#contact {
-    min-height: 50vh;
-    /* Relaxed height */
-    padding: 6rem 2rem;
-    padding-bottom: 8rem;
-    /* Extra bottom padding */
-}
-
 /* 3-Column Footer */
 .doodle-footer {
     background-color: #1a1a1a;
@@ -546,6 +556,8 @@ h4 {
     padding: 4rem 3rem 1rem 3rem;
     margin-top: auto;
     border-top: none;
+    scroll-snap-align: end;
+    /* Fixes footer bouncing by making it a snap target */
 }
 
 .footer-content {
@@ -660,7 +672,68 @@ h4 {
     color: #666;
 }
 
-/* Robot Guide styles moved to end of file - see ROBO MASCOT SYSTEM section */
+/* Robot Guide - Initial Basic Styles, logic in JS */
+#guide-robot {
+    position: absolute;
+    /* Changed from fixed to absolute */
+    width: 70px;
+    z-index: 2000;
+    transition: all 0.5s ease-out;
+    cursor: pointer;
+    top: 80px;
+    left: 20px;
+    animation: gentleHover 3s ease-in-out infinite;
+}
+
+@keyframes gentleHover {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+#robot-img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.2));
+    /* Lighter shadow */
+}
+
+.speech-bubble {
+    position: absolute;
+    bottom: 110%;
+    left: 100%;
+    background: var(--card-bg);
+    border: 1px solid var(--primary-color);
+    color: var(--text-color);
+    /* Dark text */
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    /* Standard radius */
+    font-size: 0.9rem;
+    width: 150px;
+    display: none !important;
+    font-family: var(--font-body);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent var(--primary-color) transparent transparent;
+}
 
 /* Team Section Specifics */
 .team-grid {
@@ -752,27 +825,34 @@ h4 {
 }
 
 /* Identity Section */
-/* Identity Section */
 .identity-section {
     position: relative;
     padding: 6rem 2rem;
-    /* Increased back for comfortable spacing */
     text-align: center;
     background: transparent;
     overflow: hidden;
     background-attachment: scroll;
+    /* Reset */
+    overflow: hidden;
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: auto;
 }
 
 .identity-content h2 {
     font-size: 3rem;
-    margin-bottom: 2rem;
-    /* Reduced margin */
+    margin-bottom: 3rem;
     color: var(--primary-color);
+}
+
+/* Identity Section Redesign */
+.identity-section {
+    padding: 2rem 1rem;
+    /* Reduced padding significantly */
+    min-height: auto;
+    /* Remove fixed height constraint */
 }
 
 .identity-container {
@@ -1050,374 +1130,5 @@ h4 {
 
     .powered-by {
         justify-content: center;
-    }
-}
-
-/* ==================== ROBO MASCOT SYSTEM ==================== */
-
-/* Base Robot Container */
-#guide-robot {
-    position: fixed;
-    right: 30px;
-    top: 120px;
-    width: 70px;
-    height: auto;
-    z-index: 2000;
-    cursor: pointer;
-    /* Smooth float idle animation - no shaking */
-    animation: roboFloat 3s ease-in-out infinite;
-}
-
-#robot-img {
-    width: 100%;
-    height: auto;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
-}
-
-/* ==================== KEYFRAME ANIMATIONS ==================== */
-
-/* Gentle floating animation */
-@keyframes roboFloat {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-/* Bounce on interaction */
-@keyframes roboBounce {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    25% {
-        transform: scale(1.15);
-    }
-
-    50% {
-        transform: scale(0.95);
-    }
-
-    75% {
-        transform: scale(1.05);
-    }
-}
-
-/* Small spin (max 15 degrees) */
-@keyframes roboSpin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    25% {
-        transform: rotate(12deg);
-    }
-
-    50% {
-        transform: rotate(0deg);
-    }
-
-    75% {
-        transform: rotate(-12deg);
-    }
-
-    100% {
-        transform: rotate(0deg);
-    }
-}
-
-/* Nodding animation for team section */
-@keyframes roboNod {
-
-    0%,
-    100% {
-        transform: rotate(0deg);
-    }
-
-    30% {
-        transform: rotate(8deg);
-    }
-
-    60% {
-        transform: rotate(-5deg);
-    }
-}
-
-/* Wave animation for contact section */
-@keyframes roboWave {
-
-    0%,
-    100% {
-        transform: rotate(0deg) scale(1);
-    }
-
-    15% {
-        transform: rotate(10deg) scale(1.05);
-    }
-
-    30% {
-        transform: rotate(-8deg) scale(1);
-    }
-
-    45% {
-        transform: rotate(10deg) scale(1.05);
-    }
-
-    60% {
-        transform: rotate(-5deg) scale(1);
-    }
-}
-
-/* Jet movement effect */
-@keyframes roboJet {
-    0% {
-        transform: translateX(0) scale(1);
-        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
-    }
-
-    50% {
-        transform: translateX(15px) scale(1.1);
-        filter: drop-shadow(-10px 4px 15px rgba(255, 59, 59, 0.4));
-    }
-
-    100% {
-        transform: translateX(0) scale(1);
-        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
-    }
-}
-
-/* Lightbulb glow for Innovate card */
-@keyframes lightbulbGlow {
-
-    0%,
-    100% {
-        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
-    }
-
-    50% {
-        filter: drop-shadow(0 0 20px rgba(255, 200, 50, 0.6)) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
-    }
-}
-
-/* ==================== ANIMATION CLASSES ==================== */
-
-#guide-robot.robo-bounce #robot-img {
-    animation: roboBounce 0.5s ease;
-}
-
-#guide-robot.robo-spin #robot-img {
-    animation: roboSpin 0.4s ease;
-}
-
-#guide-robot.robo-nod #robot-img {
-    animation: roboNod 0.8s ease;
-}
-
-#guide-robot.robo-wave #robot-img {
-    animation: roboWave 2s ease-in-out infinite;
-}
-
-#guide-robot.robo-jet #robot-img {
-    animation: roboJet 0.3s ease;
-}
-
-#guide-robot.lightbulb-glow #robot-img {
-    animation: lightbulbGlow 1.5s ease-in-out infinite;
-}
-
-#guide-robot.robo-pointing #robot-img {
-    transform: rotate(-15deg);
-}
-
-#guide-robot.robo-float-to-headline {
-    transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* ==================== SPEECH BUBBLE ==================== */
-
-.robo-speech-bubble {
-    position: absolute;
-    bottom: calc(100% + 10px);
-    right: 0;
-    background: #ffffff;
-    padding: 10px 14px;
-    border-radius: 12px;
-    border: 2px solid var(--primary-color);
-    min-width: 160px;
-    max-width: 200px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
-    font-size: 0.85rem;
-    font-weight: 500;
-    font-family: var(--font-body);
-    color: var(--text-color);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px) scale(0.95);
-    transition: opacity 0.3s ease,
-        visibility 0.3s ease,
-        transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    pointer-events: none;
-    z-index: 2001;
-    text-align: center;
-    line-height: 1.4;
-}
-
-.robo-speech-bubble::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    right: 20px;
-    border-width: 10px 8px 0;
-    border-style: solid;
-    border-color: var(--primary-color) transparent transparent transparent;
-}
-
-.robo-speech-bubble::before {
-    content: '';
-    position: absolute;
-    bottom: -7px;
-    right: 22px;
-    border-width: 8px 6px 0;
-    border-style: solid;
-    border-color: #ffffff transparent transparent transparent;
-    z-index: 1;
-}
-
-.robo-speech-bubble.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0) scale(1);
-}
-
-.bubble-text {
-    display: block;
-}
-
-/* ==================== CONFETTI ==================== */
-
-#robo-confetti {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9999;
-    overflow: hidden;
-}
-
-.confetti-particle {
-    position: absolute;
-    top: -20px;
-    width: 10px;
-    height: 10px;
-    border-radius: 2px;
-    animation: confettiFall 3s ease-out forwards;
-}
-
-@keyframes confettiFall {
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateY(100vh) rotate(720deg);
-        opacity: 0;
-    }
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-
-    /* Mascot Adjustments */
-    #guide-robot {
-        width: 50px;
-        right: 15px;
-    }
-
-    .robo-speech-bubble {
-        min-width: 140px;
-        max-width: 160px;
-        font-size: 0.8rem;
-        padding: 8px 12px;
-    }
-
-    /* Layout Fixes */
-    .hero-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 2rem;
-        padding-top: 2rem;
-    }
-
-    .hero-text {
-        text-align: center;
-        margin-bottom: 2rem;
-    }
-
-    .hero-text h1 {
-        font-size: 2.5rem;
-        /* Smaller Heading */
-    }
-
-    .hero-accent-line {
-        justify-content: center;
-        border-left: none;
-        border-bottom: 3px solid var(--primary-color);
-        padding-left: 0;
-        padding-bottom: 0.5rem;
-    }
-
-    .btn-group {
-        justify-content: center;
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    /* Reduce Massive Padding on Mobile */
-    .content-section,
-    #activities,
-    #team,
-    #contact,
-    .identity-section {
-        padding: 3rem 1.5rem;
-        /* Reduced from 6rem 3rem */
-        min-height: auto;
-    }
-
-    /* Stack Footer properly */
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 2.5rem;
-    }
-
-    .footer-col {
-        min-width: 100%;
-        text-align: center;
-    }
-
-    .footer-logo {
-        justify-content: center;
-    }
-
-    .social-links {
-        justify-content: center;
-    }
-
-    /* Cards */
-    .card-container,
-    .team-grid,
-    .identity-container {
-        flex-direction: column;
-        align-items: center;
     }
 }

@@ -18,5 +18,9 @@ def team():
 def join():
     return render_template('join.html')
 
+@app.route('/workshop')
+def workshop():
+    return render_template('workshop.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
