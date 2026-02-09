@@ -1,24 +1,22 @@
-{% extends 'base.html' %}
+    {% extends 'base.html' %}
 
-{% block content %}
-<section class="content-section"
-    style="min-height: 80vh; display: flex; justify-content: center; align-items: center; text-align: center;">
-    <div style="max-width: 800px; padding: 2rem;">
-        <h1 style="font-size: 3.5rem; color: var(--primary-color); margin-bottom: 2rem;">{{ page_title }}</h1>
-        <h2 style="font-size: 2.5rem; color: #333; margin-bottom: 2rem;">Coming Soon</h2>
+    {% block content %}
+    <section class="content-section coming-soon-section">
+        <div class="coming-soon-inner">
+            <h1 class="coming-soon-title">{{ page_title }}</h1>
+            <h2 class="coming-soon-subtitle">Coming Soon</h2>
 
-        <div
-            style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 2px solid var(--primary-color);">
-            <p style="font-size: 1.5rem; font-style: italic; color: #555; line-height: 1.6;">
-                <i class="fa-solid fa-quote-left" style="color: var(--primary-color); margin-right: 10px;"></i>
-                {{ quote }}
-                <i class="fa-solid fa-quote-right" style="color: var(--primary-color); margin-left: 10px;"></i>
-            </p>
+            <div class="coming-soon-card">
+                <p class="coming-soon-quote">
+                    <i class="fa-solid fa-quote-left"></i>
+                    {{ quote }}
+                    <i class="fa-solid fa-quote-right"></i>
+                </p>
+            </div>
+
+            <div class="coming-soon-cta">
+                <a href="/" class="doodle-btn primary-btn"><i class="fa-solid fa-house"></i> Back to Home</a>
+            </div>
         </div>
-
-        <div style="margin-top: 3rem;">
-            <a href="/" class="doodle-btn primary-btn"><i class="fa-solid fa-house"></i> Back to Home</a>
-        </div>
-    </div>
-</section>
-{% endblock %}
+    </section>
+    {% endblock %}

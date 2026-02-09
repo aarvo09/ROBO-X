@@ -3,39 +3,34 @@
 {% block content %}
 
 <section id="home" class="hero-section">
-    <section id="home" class="hero-section">
-        <div class="hero-container">
-            <div class="hero-text">
-                <!-- Unique Tag -->
-                <span class="hero-tag">EST. 2026 • CHANDIGARH UNIVERSITY</span>
+    <div class="hero-container">
+        <div class="hero-text">
+            <!-- Unique Tag -->
+            <span class="hero-tag">EST. 2026 • CHANDIGARH UNIVERSITY</span>
 
-                <!-- Unique Badge / Accent -->
-                <div class="hero-accent-line">
-                    <span class="accent-dot"></span> Innovating the Future of Robotics
-                </div>
-
-                <!-- Heading -->
-                <h1><span class="uni-name">Chandigarh University</span>
-                </h1>
-
-                <p>Join India's premier student-run robotics community. Master cutting-edge technologies, build
-                    real-world
-                    bots,
-                    and accelerate your career in engineering.</p>
-
-                <!-- Buttons -->
-                <div class="btn-group">
-                    <a href="/join" class="doodle-btn primary-btn">Join Now <i class="fa-solid fa-arrow-right"></i></a>
-                    <a href="#activities" class="doodle-btn secondary-btn">Explore Activities</a>
-                </div>
+            <!-- Unique Badge / Accent -->
+            <div class="hero-accent-line">
+                <span class="accent-dot"></span> Innovating the Future of Robotics
             </div>
 
-            <div class="hero-visual">
-                <img src="{{ url_for('static', filename='images/university_campus.png') }}"
-                    alt="Chandigarh University Campus" class="hero-campus-img">
+            <!-- Heading -->
+            <h1><span class="uni-name">Chandigarh University</span></h1>
+
+            <p>Join India's premier student-run robotics community. Master cutting-edge technologies, build real-world
+                bots, and accelerate your career in engineering.</p>
+
+            <!-- Buttons -->
+            <div class="btn-group">
+                <a href="/join" class="doodle-btn primary-btn">Join Now <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#activities" class="doodle-btn secondary-btn">Explore Activities</a>
             </div>
         </div>
-    </section>
+
+        <div class="hero-visual">
+            <img src="{{ url_for('static', filename='images/university_campus.png') }}"
+                alt="Chandigarh University Campus" class="hero-campus-img">
+        </div>
+    </div>
 </section>
 
 <section id="about" class="identity-section">
@@ -131,9 +126,6 @@
                 <h4>Ratnesh Kumar Shukla</h4>
                 <p>Club Coordinator</p>
             </div>
-        </div>
-
-        <div class="team-grid">
             <!-- President -->
             <div class="team-card" id="member-president">
                 <div class="member-avatar">
@@ -160,7 +152,6 @@
                 <p>Secretary</p>
             </div>
         </div>
-    </div>
     </div>
 </section>
 
