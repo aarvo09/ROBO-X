@@ -15,7 +15,7 @@
                 </div>
 
                 <!-- Heading -->
-                <h1><span class="uni-name">Chandigarh University</span><br><span class="highlight">Robo-X Club</span>
+                <h1><span class="uni-name">Chandigarh University</span>
                 </h1>
 
                 <p>Join India's premier student-run robotics community. Master cutting-edge technologies, build
@@ -119,15 +119,45 @@
         <div class="team-grid">
             <!-- HOD Sir -->
             <div class="team-card" id="member-hod">
-                <div class="member-avatar"></div>
-                <h4>HOD Sir</h4>
+                <div class="member-avatar">
+                    <img src="{{ url_for('static', filename='images/hodsir1.jpeg') }}" alt="HOD Sir">
+                </div>
+                <h4>Ajay Kumar Singh</h4>
                 <p>Head of Department</p>
             </div>
             <!-- Club Coordinator -->
             <div class="team-card" id="member-coordinator">
                 <div class="member-avatar"></div>
-                <h4>Coordinator</h4>
+                <h4>Ratnesh Kumar Shukla</h4>
                 <p>Club Coordinator</p>
+            </div>
+        </div>
+
+        <div class="team-grid">
+            <!-- President -->
+            <div class="team-card" id="member-president">
+                <div class="member-avatar">
+                    <img src="{{ url_for('static', filename='images/sujalg.jpeg') }}" alt="Sujal Negi">
+                </div>
+                <h4>Sujal Negi</h4>
+                <p>President</p>
+            </div>
+            <!-- Vice President -->
+            <div class="team-card" id="member-vp">
+                <div class="member-avatar">
+                    <img src="{{ url_for('static', filename='images/imagea.png') }}" alt="Arvind Kumar Singh"
+                        style="object-position: top; transform: scale(1); transform-origin: top;">
+                </div>
+                <h4>Arvind Kumar Singh</h4>
+                <p>Vice President</p>
+            </div>
+            <!-- Secretary -->
+            <div class="team-card" id="member-secretary">
+                <div class="member-avatar">
+                    <img src="{{ url_for('static', filename='images/imgat.png') }}" alt="Taksh Singh">
+                </div>
+                <h4>Taksh Singh</h4>
+                <p>Secretary</p>
             </div>
         </div>
     </div>
@@ -137,8 +167,8 @@
 <section id="contact" class="content-section">
     <h2>Get in Touch</h2>
     <p>Have questions? Reach out to us!</p>
-    <a href="mailto:contact@roboxclub.com" class="doodle-btn primary-btn" id="email-btn">Email Us <i
-            class="fa-solid fa-paper-plane"></i></a>
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=roboxclubcu@gmail.com" target="_blank"
+        class="doodle-btn primary-btn" id="email-btn">Email Us <i class="fa-solid fa-paper-plane"></i></a>
 </section>
 
 {% endblock %}

@@ -184,22 +184,36 @@
         robot.style.transform = 'translateX(0)';
 
         // Apply position based on responsiveness
-        if (pos.right !== 'auto') {
-            robot.style.left = 'auto';
-            robot.style.right = pos.right;
+        if (isMobile()) {
+            // Mobile: Clear inline styles to let CSS handle static positioning
+            robot.style.position = '';
+            robot.style.top = '';
+            robot.style.bottom = '';
+            robot.style.left = '';
+            robot.style.right = '';
+            robot.style.transform = '';
+            // Ensure static display
+            robot.classList.add('mobile-static');
         } else {
-            robot.style.left = pos.left;
-            robot.style.right = 'auto';
-        }
+            robot.classList.remove('mobile-static');
+            if (pos.right !== 'auto') {
+                robot.style.left = 'auto';
+                robot.style.right = pos.right;
+            } else {
+                robot.style.left = pos.left;
+                robot.style.right = 'auto';
+            }
 
-        if (pos.bottom !== 'auto') {
-            robot.style.top = 'auto';
-            robot.style.bottom = pos.bottom;
-            // Add fixed bottom class/style to prevent floating mid-page
-            robot.style.position = 'fixed';
-        } else {
-            robot.style.top = pos.top;
-            robot.style.bottom = 'auto';
+            if (pos.bottom !== 'auto') {
+                robot.style.top = 'auto';
+                robot.style.bottom = pos.bottom;
+                // Add fixed bottom class/style to prevent floating mid-page
+                robot.style.position = 'fixed';
+            } else {
+                robot.style.top = pos.top;
+                robot.style.bottom = 'auto';
+                robot.style.position = 'fixed'; // Ensure fixed for desktop
+            }
         }
 
         // Clear previous rotation
@@ -341,12 +355,7 @@
             if (currentTop + robotHeight > footerRect.top - 20) {
                 // On mobile, if fixed bottom, we might need to adjust 'bottom' or change to absolute
                 if (isMobile()) {
-                    // If in FAB mode (bottom fixed), pushing it 'up' means increasing 'bottom'
-                    // Distance from viewport bottom to footer top
-                    const distFromBottom = window.innerHeight - footerRect.top;
-                    if (distFromBottom > 0) {
-                        robot.style.bottom = (20 + distFromBottom) + 'px';
-                    }
+                    // Mobile: Do nothing, let CSS handle it (static at bottom)
                 } else {
                     // Desktop top-based logic
                     robot.style.top = (footerRect.top - robotHeight - 20) + 'px';
@@ -355,11 +364,7 @@
             } else {
                 // Restore default bottom if mobile and not overlapping?
                 if (isMobile()) {
-                    // If we scrolled up and footer is away, reset to bottom: 20px
-                    // We need to know if we are 'safe'
-                    if (window.innerHeight - footerRect.top < 0) {
-                        robot.style.bottom = '20px';
-                    }
+                    // Mobile: Do nothing
                 }
             }
         }, { passive: true });
