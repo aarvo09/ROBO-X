@@ -49,7 +49,78 @@ document.addEventListener('DOMContentLoaded', () => {
                 navLinks.classList.remove('active');
             });
         });
+
+        // Close menu when clicking outside (mobile UX)
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
     }
 
-    // Add more general interactivity here
+    // ==================== TEAM MEMBER MODAL ====================
+    const modal = document.getElementById('member-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalPlaceholder = document.getElementById('modal-placeholder');
+    const modalName = document.getElementById('modal-name');
+    const modalRole = document.getElementById('modal-role');
+    const modalInfo = document.getElementById('modal-info');
+    const modalQuote = document.getElementById('modal-quote');
+    const modalClose = document.getElementById('modal-close');
+
+    // Open modal on team card click
+    document.querySelectorAll('.team-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const name = card.dataset.name;
+            const role = card.dataset.role;
+            const info = card.dataset.info;
+            const quote = card.dataset.quote;
+            const img = card.dataset.img;
+            const imgPosition = card.dataset.imgPosition || 'center';
+
+            if (!name) return; // Skip if no data
+
+            modalName.textContent = name;
+            modalRole.textContent = role;
+            modalInfo.textContent = info;
+            modalQuote.textContent = quote;
+
+            if (img) {
+                modalImg.src = img;
+                modalImg.alt = name;
+                modalImg.style.display = 'block';
+                modalImg.style.objectPosition = imgPosition;
+                modalPlaceholder.style.display = 'none';
+            } else {
+                modalImg.style.display = 'none';
+                modalPlaceholder.style.display = 'block';
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    // Close modal
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    if (modalClose) {
+        modalClose.addEventListener('click', closeModal);
+    }
+
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
 });

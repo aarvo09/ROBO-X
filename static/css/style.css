@@ -26,14 +26,20 @@ body {
     background-color: var(--bg-color);
     background-image: url('../images/medium_density_doodle_bg.png');
     background-size: 450px;
-    /* Balanced size */
     background-blend-mode: multiply;
-    /* Ensures lines blend well */
     font-family: var(--font-body);
     color: var(--text-color);
     overflow-x: hidden;
     position: relative;
     line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 html {
@@ -267,6 +273,11 @@ h4 {
     /* Negative margins to keep navbar height unchanged */
     margin-top: -38px;
     margin-bottom: -38px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
 }
 
 .nav-links a {
@@ -788,6 +799,230 @@ h4 {
     color: #555;
     font-family: var(--font-header);
     letter-spacing: 0.5px;
+}
+
+/* Make team cards clickable */
+.team-card {
+    cursor: pointer;
+}
+
+/* ==================== TEAM MEMBER MODAL ==================== */
+.member-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.member-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.member-modal {
+    background: #fff;
+    border-radius: 20px;
+    max-width: 380px;
+    width: 100%;
+    padding: 2.5rem 2rem 2rem;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+    border: 2px solid var(--primary-color);
+    transform: scale(0.85) translateY(20px);
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.member-modal-overlay.active .member-modal {
+    transform: scale(1) translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    color: #999;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.modal-close:hover {
+    background: #f0f0f0;
+    color: var(--primary-color);
+}
+
+.modal-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 1.2rem;
+    overflow: hidden;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 4px 15px rgba(255, 59, 59, 0.2);
+    position: relative;
+    background: #f5f5f5;
+}
+
+.modal-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.modal-avatar img[src=""] {
+    display: none;
+}
+
+.modal-avatar-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    filter: grayscale(100%);
+    display: none;
+}
+
+.modal-avatar img[src=""]~.modal-avatar-placeholder {
+    display: block;
+}
+
+.modal-body h3 {
+    font-family: var(--font-header);
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin: 0 0 0.3rem;
+}
+
+.modal-role {
+    display: inline-block;
+    background: var(--primary-color);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.9rem;
+    border-radius: 50px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-family: var(--font-body);
+    margin-bottom: 1rem;
+}
+
+.modal-info {
+    font-size: 0.92rem;
+    color: #555;
+    line-height: 1.5;
+    margin: 0.8rem 0 1.2rem;
+    font-family: var(--font-body);
+}
+
+.modal-quote {
+    background: #fafafa;
+    border-left: 3px solid var(--primary-color);
+    padding: 0.8rem 1rem;
+    border-radius: 0 10px 10px 0;
+    text-align: left;
+    margin-top: 0.5rem;
+}
+
+.modal-quote i {
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    margin-right: 0.3rem;
+    opacity: 0.7;
+}
+
+.modal-quote span {
+    font-size: 0.85rem;
+    color: #666;
+    font-style: italic;
+    line-height: 1.5;
+    font-family: var(--font-body);
+}
+
+/* Modal Mobile */
+@media (max-width: 768px) {
+    .member-modal {
+        max-width: 320px;
+        padding: 2rem 1.4rem 1.5rem;
+        border-radius: 16px;
+    }
+
+    .modal-avatar {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 1rem;
+    }
+
+    .modal-body h3 {
+        font-size: 1.2rem;
+    }
+
+    .modal-role {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.7rem;
+    }
+
+    .modal-info {
+        font-size: 0.82rem;
+        margin: 0.6rem 0 1rem;
+    }
+
+    .modal-quote {
+        padding: 0.6rem 0.8rem;
+    }
+
+    .modal-quote span {
+        font-size: 0.78rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .member-modal {
+        max-width: 280px;
+        padding: 1.5rem 1.2rem 1.2rem;
+    }
+
+    .modal-avatar {
+        width: 65px;
+        height: 65px;
+    }
+
+    .modal-body h3 {
+        font-size: 1.05rem;
+    }
+
+    .modal-info {
+        font-size: 0.78rem;
+    }
+
+    .modal-quote span {
+        font-size: 0.72rem;
+    }
 }
 
 /* Identity Section */
@@ -1490,6 +1725,9 @@ h4 {
     .doodle-nav {
         padding: 0.3rem 0.8rem;
         flex-wrap: nowrap;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
     }
 
     .logo-container {
@@ -1516,6 +1754,8 @@ h4 {
         cursor: pointer;
         padding: 0.5rem;
         -webkit-tap-highlight-color: transparent;
+        min-width: 44px;
+        min-height: 44px;
     }
 
     /* Mobile nav dropdown */
@@ -1532,6 +1772,8 @@ h4 {
         border-bottom: 2px solid var(--border-color);
         border-radius: 0 0 15px 15px;
         z-index: 1000;
+        max-height: 80vh;
+        overflow-y: auto;
     }
 
     .nav-links.active {
@@ -1540,13 +1782,15 @@ h4 {
 
     .nav-links a {
         margin: 0;
-        padding: 0.65rem 1.5rem;
+        padding: 0.75rem 1.5rem;
         text-align: center;
         width: 100%;
         display: block;
         margin-left: 0;
         font-size: 0.95rem;
         border-bottom: 1px solid #f0f0f0;
+        min-height: 44px;
+        line-height: 1.6;
     }
 
     .nav-links a:last-child {
@@ -1559,8 +1803,9 @@ h4 {
         margin: 0.6rem auto !important;
         text-align: center;
         display: block !important;
-        padding: 0.5rem 1.2rem;
+        padding: 0.6rem 1.2rem;
         font-size: 0.9rem;
+        min-height: 44px;
     }
 
     /* --- Hero Section Mobile --- */
@@ -1586,10 +1831,11 @@ h4 {
     .hero-text h1 {
         font-size: 1.6rem;
         margin-bottom: 0.6rem;
+        word-break: break-word;
     }
 
     .hero-text p {
-        font-size: 0.88rem;
+        font-size: 0.9rem;
         margin-bottom: 1.2rem;
         line-height: 1.5;
     }
@@ -1632,9 +1878,10 @@ h4 {
     }
 
     .doodle-btn {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.85rem;
+        padding: 0.7rem 1.4rem;
+        font-size: 0.88rem;
         border-radius: 10px;
+        min-height: 44px;
     }
 
     .hero-section .doodle-btn {
@@ -1645,58 +1892,63 @@ h4 {
     /* --- Sections Mobile --- */
     .content-section {
         min-height: auto;
-        padding: 2rem 1rem;
+        padding: 2.5rem 1rem;
     }
 
     .content-section h2,
     .identity-content h2 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
         margin-bottom: 0.5rem;
     }
 
-    .content-section > p {
-        font-size: 0.88rem;
+    .content-section>p {
+        font-size: 0.9rem;
         margin-bottom: 0.8rem;
     }
 
     #activities,
     #team,
     .identity-section {
-        padding: 2rem 1rem;
+        padding: 2.5rem 1rem;
         min-height: auto;
     }
 
     #contact {
         min-height: auto;
-        padding: 2rem 1rem 3rem;
+        padding: 2.5rem 1rem 4rem;
     }
 
-    /* --- Cards Mobile: 2-Column Grid --- */
+    /* --- Cards Mobile: stack vertically for readability --- */
     .card-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        flex-direction: column;
         gap: 0.8rem;
         margin-top: 1rem;
         width: 100%;
-        max-width: 400px;
+        max-width: 100%;
+        align-items: center;
     }
 
     .doodle-card {
         width: 100%;
-        max-width: none;
-        padding: 1rem 0.8rem;
+        max-width: 340px;
+        padding: 1.2rem 1rem;
         box-sizing: border-box;
-        border-width: 1.5px;
+        border-width: 2px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 
     .doodle-card h3 {
-        font-size: 1rem;
+        font-size: 1.1rem;
         margin-bottom: 0.3rem;
     }
 
     .doodle-card p {
-        font-size: 0.78rem;
-        line-height: 1.4;
+        font-size: 0.85rem;
+        line-height: 1.5;
     }
 
     /* --- Identity / About Section Mobile --- */
@@ -1711,26 +1963,26 @@ h4 {
         flex-wrap: nowrap;
         gap: 0;
         width: 100%;
-        padding: 1rem 0.6rem;
+        padding: 1.2rem 0.6rem;
         border-radius: 12px;
         margin-bottom: 0.8rem;
     }
 
     .step-icon {
-        width: 38px;
-        height: 38px;
-        font-size: 1rem;
+        width: 42px;
+        height: 42px;
+        font-size: 1.1rem;
         border-width: 2px;
         margin-bottom: 0.3rem;
     }
 
     .timeline-step h4 {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
         margin: 0.2rem 0 0;
     }
 
     .timeline-step p {
-        font-size: 0.65rem;
+        font-size: 0.7rem;
     }
 
     .step-connector {
@@ -1750,35 +2002,39 @@ h4 {
         flex-direction: column;
     }
 
-    /* Values: 3 across, compact */
+    /* Values: stack on mobile for readability */
     .values-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.6rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
         margin-top: 0;
+        align-items: center;
     }
 
     .value-card {
         width: 100%;
-        max-width: none;
-        padding: 0.8rem 0.5rem;
-        border-width: 1.5px;
-        border-radius: 8px;
+        max-width: 340px;
+        padding: 1rem 0.8rem;
+        border-width: 2px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .value-card i {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         margin-bottom: 0.4rem;
     }
 
     .value-card h4 {
-        font-size: 0.8rem;
+        font-size: 0.95rem;
         margin: 0.2rem 0;
     }
 
     .value-card p {
-        font-size: 0.68rem;
-        line-height: 1.3;
+        font-size: 0.8rem;
+        line-height: 1.4;
     }
 
     /* --- Team Section Mobile: 2-Column Grid --- */
@@ -1789,7 +2045,7 @@ h4 {
     .team-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 0.6rem;
+        gap: 0.8rem;
         margin-top: 0.6rem;
         max-width: 100%;
         margin-left: auto;
@@ -1800,17 +2056,18 @@ h4 {
     .team-card {
         width: 100%;
         max-width: none;
-        padding: 0.6rem 0.4rem;
-        border-width: 1.5px;
+        padding: 0.8rem 0.5rem;
+        border-width: 2px;
         border-radius: 10px;
         box-sizing: border-box;
+        min-height: 44px;
     }
 
     .member-avatar {
-        width: 55px;
-        height: 55px;
-        margin-bottom: 0.3rem;
-        border-width: 1.5px;
+        width: 60px;
+        height: 60px;
+        margin-bottom: 0.4rem;
+        border-width: 2px;
     }
 
     .member-avatar::after {
@@ -1818,17 +2075,17 @@ h4 {
     }
 
     .team-card h4 {
-        font-size: 0.72rem;
-        margin: 0.15rem 0;
+        font-size: 0.78rem;
+        margin: 0.2rem 0;
     }
 
     .team-card p {
-        font-size: 0.62rem;
+        font-size: 0.68rem;
     }
 
     /* --- Footer Mobile --- */
     .doodle-footer {
-        padding: 2rem 1rem 0.8rem;
+        padding: 2.5rem 1.2rem 1rem;
     }
 
     .footer-content {
@@ -1844,12 +2101,12 @@ h4 {
     }
 
     .footer-col h3 {
-        font-size: 0.95rem;
+        font-size: 1rem;
         margin-bottom: 0.8rem;
     }
 
     .footer-col p {
-        font-size: 0.82rem;
+        font-size: 0.85rem;
         margin-bottom: 0.6rem;
     }
 
@@ -1858,7 +2115,10 @@ h4 {
     }
 
     .footer-col ul li a {
-        font-size: 0.85rem;
+        font-size: 0.88rem;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
     }
 
     .footer-logo {
@@ -1875,14 +2135,22 @@ h4 {
 
     .social-links {
         justify-content: center;
-        font-size: 1.2rem;
-        gap: 1.2rem;
+        font-size: 1.4rem;
+        gap: 1.5rem;
+    }
+
+    .social-links a {
+        min-width: 44px;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .footer-bottom {
         margin-top: 1.2rem;
         padding-top: 1rem;
-        font-size: 0.75rem;
+        font-size: 0.78rem;
     }
 
     /* --- Workshop Page Mobile --- */
@@ -1904,14 +2172,14 @@ h4 {
 
     .event-meta {
         flex-direction: column;
-        gap: 0.4rem;
+        gap: 0.5rem;
         align-items: center;
-        font-size: 0.9rem;
+        font-size: 0.92rem;
         margin-bottom: 1rem;
     }
 
     .event-badge {
-        font-size: 0.75rem;
+        font-size: 0.78rem;
         padding: 0.3rem 0.8rem;
     }
 
@@ -1923,7 +2191,7 @@ h4 {
     }
 
     .powered-by p {
-        font-size: 0.7rem;
+        font-size: 0.75rem;
     }
 
     .partner-logo {
@@ -1931,8 +2199,9 @@ h4 {
     }
 
     .workshop-description {
-        font-size: 0.88rem;
+        font-size: 0.9rem;
         margin-bottom: 1.5rem;
+        line-height: 1.6;
     }
 
     .workshop-visual img {
@@ -1948,17 +2217,18 @@ h4 {
     }
 
     .nav-notification-icon {
-        width: 38px;
-        height: 38px;
-        font-size: 1.1rem;
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
     }
 
     .notification-dropdown {
         right: auto;
         left: 0;
-        bottom: 55px;
+        bottom: 60px;
         transform-origin: bottom left;
-        width: 260px;
+        width: calc(100vw - 28px);
+        max-width: 300px;
     }
 
     .notification-header {
@@ -1966,20 +2236,20 @@ h4 {
     }
 
     .notification-header h4 {
-        font-size: 0.85rem;
+        font-size: 0.88rem;
     }
 
     .notification-item {
-        padding: 0.7rem 0.8rem;
+        padding: 0.8rem;
         gap: 0.7rem;
     }
 
     .notification-text strong {
-        font-size: 0.82rem;
+        font-size: 0.85rem;
     }
 
     .notification-text p {
-        font-size: 0.75rem;
+        font-size: 0.78rem;
     }
 
     /* --- Mascot Mobile --- */
@@ -2023,15 +2293,21 @@ h4 {
     .content-section .doodle-card ul {
         margin: 0.8rem 0.8rem !important;
         padding-left: 1rem;
-        font-size: 0.85rem;
+        font-size: 0.88rem;
     }
 
     .content-section .lead {
-        font-size: 0.9rem;
+        font-size: 0.92rem;
     }
 
     .content-section h1 {
         font-size: 1.5rem;
+    }
+
+    /* Email button */
+    #email-btn {
+        min-height: 44px;
+        font-size: 0.92rem;
     }
 }
 
@@ -2039,13 +2315,13 @@ h4 {
 @media (max-width: 420px) {
 
     .uni-logo {
-        height: 24px;
+        height: 22px;
     }
 
     .robox-logo {
-        height: 65px;
-        margin-top: -16px;
-        margin-bottom: -16px;
+        height: 60px;
+        margin-top: -15px;
+        margin-bottom: -15px;
     }
 
     .hero-section {
@@ -2057,11 +2333,11 @@ h4 {
     }
 
     .hero-text h1 {
-        font-size: 1.35rem;
+        font-size: 1.3rem;
     }
 
     .hero-text p {
-        font-size: 0.82rem;
+        font-size: 0.84rem;
     }
 
     .hero-accent-line {
@@ -2069,98 +2345,93 @@ h4 {
     }
 
     .hero-campus-img {
-        max-width: 250px;
+        width: 90%;
+        max-width: 260px;
     }
 
     .doodle-btn {
-        padding: 0.55rem 1rem;
-        font-size: 0.8rem;
+        padding: 0.6rem 1rem;
+        font-size: 0.82rem;
+        min-height: 44px;
     }
 
-    /* Sections even tighter */
+    /* Sections */
     .content-section,
     #activities,
     #team,
     #contact,
     .identity-section {
-        padding: 1.5rem 0.8rem;
+        padding: 2rem 0.8rem;
     }
 
     .content-section h2,
     .identity-content h2 {
-        font-size: 1.3rem;
+        font-size: 1.35rem;
     }
 
-    /* Cards: single column on very small screens */
+    /* Cards stay single column */
     .card-container {
-        grid-template-columns: 1fr;
-        max-width: 260px;
-        gap: 0.6rem;
-    }
-
-    /* Values: 1 column on very small */
-    .values-grid {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
-        max-width: 260px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .value-card {
-        padding: 0.7rem;
-    }
-
-    /* Team grid stays 2 columns but tighter */
-    .team-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.5rem;
         max-width: 100%;
     }
 
+    .doodle-card {
+        max-width: 100%;
+    }
+
+    /* Values already stacked from 768px */
+    .value-card {
+        max-width: 100%;
+    }
+
+    /* Team grid 2 columns, tighter */
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
+    }
+
     .member-avatar {
-        width: 44px;
-        height: 44px;
+        width: 50px;
+        height: 50px;
     }
 
     .team-card {
-        padding: 0.5rem 0.3rem;
+        padding: 0.6rem 0.4rem;
     }
 
     .team-card h4 {
-        font-size: 0.68rem;
+        font-size: 0.72rem;
     }
 
     .team-card p {
-        font-size: 0.58rem;
+        font-size: 0.6rem;
     }
 
     /* Timeline compact */
     .step-icon {
-        width: 32px;
-        height: 32px;
-        font-size: 0.85rem;
+        width: 34px;
+        height: 34px;
+        font-size: 0.9rem;
     }
 
     .timeline-step h4 {
-        font-size: 0.72rem;
+        font-size: 0.75rem;
     }
 
     .timeline-step p {
-        font-size: 0.6rem;
+        font-size: 0.62rem;
     }
 
     /* Footer */
     .doodle-footer {
-        padding: 1.5rem 0.8rem 0.6rem;
+        padding: 2rem 0.8rem 0.6rem;
     }
 
     .footer-col h3 {
-        font-size: 0.9rem;
+        font-size: 0.92rem;
     }
 
     .footer-col p {
-        font-size: 0.78rem;
+        font-size: 0.8rem;
     }
 
     /* Workshop */
@@ -2169,12 +2440,13 @@ h4 {
     }
 
     .workshop-description {
-        font-size: 0.82rem;
+        font-size: 0.84rem;
     }
 
     /* Notification */
     .notification-dropdown {
-        width: 230px;
+        width: calc(100vw - 28px);
+        max-width: 260px;
     }
 
     /* Mascot */
@@ -2192,10 +2464,16 @@ h4 {
     }
 
     .coming-soon-quote {
-        font-size: 0.85rem;
+        font-size: 0.88rem;
     }
 
     .coming-soon-inner {
         padding: 1rem 0.5rem;
+    }
+
+    /* Modal */
+    .member-modal {
+        max-width: calc(100vw - 2rem);
+        padding: 1.5rem 1rem 1.2rem;
     }
 }

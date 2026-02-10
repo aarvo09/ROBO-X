@@ -77,6 +77,22 @@
                 "Questions build better engineers.",
                 "Even great roboticists started by asking simple questions."
             ]
+        },
+        countdown: {
+            id: 'countdown',
+            getPos: () => getSectionPos('35vh'),
+            messages: [
+                "Tick tock. The workshop is closer than you think.",
+                "Mark your calendar. Robots wait for no one."
+            ]
+        },
+        roadmap: {
+            id: 'roadmap',
+            getPos: () => getSectionPos('30vh'),
+            messages: [
+                "Everyone starts at Level 1. That's the beauty of it.",
+                "Pick a path. Arduino, AI, drones — all roads lead to cool."
+            ]
         }
     };
 

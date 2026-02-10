@@ -1,0 +1,874 @@
+/* ================================================================
+   FEATURES CSS — Dark Mode, Countdown, Terminal, Roadmap
+   ================================================================ */
+
+/* ==================== DARK MODE (#8) ==================== */
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --primary-color: #ff4444;
+    --secondary-color: #ff6666;
+    --accent-color: #ff8888;
+    --text-color: #e0e0e0;
+    --nav-bg: #1a1a1a;
+    --card-bg: #1e1e1e;
+    --border-color: #ff4444;
+}
+
+[data-theme="dark"] body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    background-image: none;
+}
+
+[data-theme="dark"] .doodle-nav {
+    background-color: var(--nav-bg);
+    border-bottom-color: var(--border-color);
+    box-shadow: 0 4px 15px rgba(255, 68, 68, 0.1);
+}
+
+[data-theme="dark"] .nav-links a {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .uni-name {
+    color: #e0e0e0;
+}
+
+[data-theme="dark"] .hero-text h1 {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .hero-text p,
+[data-theme="dark"] .doodle-card p,
+[data-theme="dark"] .value-card p,
+[data-theme="dark"] .timeline-step p,
+[data-theme="dark"] .team-card p,
+[data-theme="dark"] .modal-info {
+    color: #aaa;
+}
+
+[data-theme="dark"] .hero-tag {
+    color: #888;
+}
+
+[data-theme="dark"] .hero-accent-line {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .secondary-btn {
+    color: var(--text-color);
+    border-color: #444;
+}
+
+[data-theme="dark"] .secondary-btn:hover {
+    border-color: var(--text-color);
+    background-color: #2a2a2a;
+}
+
+[data-theme="dark"] .doodle-card,
+[data-theme="dark"] .value-card,
+[data-theme="dark"] .team-card {
+    background-color: var(--card-bg);
+    border-color: #333;
+}
+
+[data-theme="dark"] .doodle-card:hover,
+[data-theme="dark"] .value-card:hover,
+[data-theme="dark"] .team-card:hover {
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .identity-timeline {
+    background: linear-gradient(rgba(30, 30, 30, 0.95), rgba(30, 30, 30, 0.95)),
+        url('../images/cuwholeimage.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+[data-theme="dark"] .step-icon {
+    background: #2a2a2a;
+    border-color: #444;
+}
+
+[data-theme="dark"] .member-avatar {
+    background-color: #2a2a2a;
+    border-color: #444;
+}
+
+[data-theme="dark"] .member-modal {
+    background: #1e1e1e;
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .modal-body h3 {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .modal-quote {
+    background: #252525;
+}
+
+[data-theme="dark"] .modal-quote span {
+    color: #aaa;
+}
+
+[data-theme="dark"] .modal-close {
+    color: #666;
+}
+
+[data-theme="dark"] .modal-close:hover {
+    background: #333;
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .hero-campus-img {
+    border-color: #333;
+    box-shadow: 20px 20px 0px rgba(255, 68, 68, 0.05);
+}
+
+[data-theme="dark"] .nav-notification-icon {
+    background: #1e1e1e;
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .notification-dropdown {
+    background-color: #1e1e1e;
+    border-color: #444;
+}
+
+[data-theme="dark"] .notification-item:hover {
+    background-color: #252525;
+}
+
+[data-theme="dark"] .notification-text strong {
+    color: #e0e0e0;
+}
+
+[data-theme="dark"] .notification-text p {
+    color: #888;
+}
+
+[data-theme="dark"] .robo-speech-bubble {
+    background: #1e1e1e;
+    color: var(--text-color);
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .robo-speech-bubble::before {
+    border-color: #1e1e1e transparent transparent transparent;
+}
+
+/* Circuit board background for dark mode */
+[data-theme="dark"] body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.03;
+    background-image:
+        linear-gradient(var(--primary-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--primary-color) 1px, transparent 1px),
+        linear-gradient(var(--primary-color) 0.5px, transparent 0.5px),
+        linear-gradient(90deg, var(--primary-color) 0.5px, transparent 0.5px);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: none;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    vertical-align: middle;
+}
+
+.theme-toggle:hover {
+    background: var(--primary-color);
+    color: #fff;
+    transform: rotate(180deg);
+}
+
+.theme-toggle .fa-moon { display: inline; }
+.theme-toggle .fa-sun { display: none; }
+
+[data-theme="dark"] .theme-toggle .fa-moon { display: none; }
+[data-theme="dark"] .theme-toggle .fa-sun { display: inline; }
+
+/* ==================== EVENT COUNTDOWN (#10) ==================== */
+.countdown-section {
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.countdown-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.countdown-event-name {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+    font-family: var(--font-body);
+}
+
+[data-theme="dark"] .countdown-event-name {
+    color: #aaa;
+}
+
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.countdown-box {
+    background: var(--card-bg);
+    border: 2px solid #000;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    min-width: 100px;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+[data-theme="dark"] .countdown-box {
+    border-color: #333;
+}
+
+.countdown-box:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.countdown-number {
+    font-family: var(--font-header);
+    font-size: 3rem;
+    color: var(--primary-color);
+    line-height: 1;
+    display: block;
+}
+
+.countdown-label {
+    font-size: 0.85rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.3rem;
+    font-weight: bold;
+}
+
+[data-theme="dark"] .countdown-label {
+    color: #888;
+}
+
+.countdown-cta {
+    margin-top: 1.5rem;
+}
+
+.countdown-cta .add-cal-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.5rem;
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    font-family: var(--font-body);
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.countdown-cta .add-cal-btn:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+/* Pulse animation on the countdown numbers */
+@keyframes countdownPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.countdown-box.pulse .countdown-number {
+    animation: countdownPulse 0.5s ease;
+}
+
+/* ==================== TERMINAL EASTER EGG (#3) ==================== */
+.terminal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.terminal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.terminal-window {
+    background: #0a0a0a;
+    border: 2px solid var(--primary-color);
+    border-radius: 12px;
+    width: 90%;
+    max-width: 650px;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 40px rgba(255, 68, 68, 0.2), 0 0 80px rgba(255, 68, 68, 0.05);
+    overflow: hidden;
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.terminal-overlay.active .terminal-window {
+    transform: scale(1) translateY(0);
+}
+
+.terminal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 1rem;
+    background: #1a1a1a;
+    border-bottom: 1px solid #333;
+}
+
+.terminal-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.terminal-dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.terminal-dots span:nth-child(1) { background: #ff5f57; }
+.terminal-dots span:nth-child(2) { background: #ffbd2e; }
+.terminal-dots span:nth-child(3) { background: #28c840; }
+
+.terminal-title {
+    color: #888;
+    font-size: 0.8rem;
+    font-family: 'Courier New', monospace;
+}
+
+.terminal-close {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.terminal-close:hover {
+    background: #333;
+    color: #fff;
+}
+
+.terminal-body {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #00ff41;
+}
+
+.terminal-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 3px;
+}
+
+.terminal-output-line {
+    margin: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.terminal-output-line.error { color: #ff4444; }
+.terminal-output-line.info { color: #4fc3f7; }
+.terminal-output-line.success { color: #00ff41; }
+.terminal-output-line.warning { color: #ffbd2e; }
+.terminal-output-line.ascii { color: #ff4444; font-size: 0.65rem; line-height: 1.1; }
+
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+    margin-top: 0.3rem;
+}
+
+.terminal-prompt {
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+    white-space: nowrap;
+}
+
+.terminal-input {
+    background: none;
+    border: none;
+    color: #00ff41;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    outline: none;
+    flex: 1;
+    caret-color: #00ff41;
+}
+
+/* Blinking cursor */
+.terminal-input-line::after {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 16px;
+    background: #00ff41;
+    animation: blink 1s step-end infinite;
+    margin-left: -2px;
+    opacity: 0;
+}
+
+.terminal-input:focus ~ .terminal-input-line::after {
+    opacity: 1;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+/* Terminal hint on page */
+.terminal-hint {
+    position: fixed;
+    bottom: 70px;
+    left: 18px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #00ff41;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    z-index: 100;
+    opacity: 0;
+    animation: terminalHintFade 8s ease 15s forwards;
+    pointer-events: none;
+}
+
+@keyframes terminalHintFade {
+    0%, 80% { opacity: 0.7; }
+    100% { opacity: 0; }
+}
+
+/* ==================== LEARNING ROADMAP / SKILL TREE (#4) ==================== */
+.roadmap-section {
+    padding: 6rem 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.roadmap-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.roadmap-subtitle {
+    color: #666;
+    font-size: 1.05rem;
+    margin-bottom: 3rem;
+}
+
+[data-theme="dark"] .roadmap-subtitle {
+    color: #aaa;
+}
+
+.roadmap-tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Vertical connector line through center */
+.roadmap-tree::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    bottom: 30px;
+    left: 50%;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--primary-color), #ff8888, #ffbd2e, #28c840);
+    transform: translateX(-50%);
+    border-radius: 3px;
+    z-index: 0;
+}
+
+.roadmap-level {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 1rem;
+}
+
+.roadmap-level:nth-child(odd) {
+    justify-content: flex-start;
+}
+
+.roadmap-level:nth-child(even) {
+    justify-content: flex-end;
+}
+
+.roadmap-node {
+    background: var(--card-bg);
+    border: 2px solid #000;
+    border-radius: 16px;
+    padding: 1.2rem 1.5rem;
+    max-width: 350px;
+    width: 42%;
+    text-align: left;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+[data-theme="dark"] .roadmap-node {
+    border-color: #333;
+}
+
+.roadmap-node:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary-color);
+    box-shadow: 6px 6px 0px rgba(255, 68, 68, 0.15);
+}
+
+.roadmap-node .node-level-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 0.2rem 0.7rem;
+    border-radius: 50px;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-body);
+}
+
+.roadmap-node.level-beginner .node-level-badge {
+    background: rgba(40, 200, 64, 0.15);
+    color: #28c840;
+}
+
+.roadmap-node.level-intermediate .node-level-badge {
+    background: rgba(255, 189, 46, 0.15);
+    color: #e6a800;
+}
+
+.roadmap-node.level-advanced .node-level-badge {
+    background: rgba(255, 68, 68, 0.15);
+    color: #ff4444;
+}
+
+.roadmap-node.level-expert .node-level-badge {
+    background: rgba(79, 195, 247, 0.15);
+    color: #4fc3f7;
+}
+
+.roadmap-node h4 {
+    font-size: 1.15rem;
+    margin: 0.3rem 0;
+    color: var(--text-color);
+}
+
+.roadmap-node p {
+    font-size: 0.88rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+}
+
+[data-theme="dark"] .roadmap-node p {
+    color: #aaa;
+}
+
+.roadmap-node .node-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+}
+
+.roadmap-node .skill-tag {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.55rem;
+    background: rgba(255, 59, 59, 0.08);
+    color: var(--primary-color);
+    border-radius: 50px;
+    font-weight: 600;
+    border: 1px solid rgba(255, 59, 59, 0.2);
+}
+
+[data-theme="dark"] .roadmap-node .skill-tag {
+    background: rgba(255, 68, 68, 0.15);
+    border-color: rgba(255, 68, 68, 0.3);
+}
+
+/* Center dot on the timeline */
+.roadmap-level .timeline-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px var(--primary-color);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    transition: transform 0.3s;
+}
+
+[data-theme="dark"] .roadmap-level .timeline-dot {
+    border-color: #121212;
+}
+
+.roadmap-level:hover .timeline-dot {
+    transform: translateX(-50%) scale(1.3);
+}
+
+/* Horizontal connectors */
+.roadmap-level::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    height: 2px;
+    background: var(--primary-color);
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.roadmap-level:nth-child(odd)::after {
+    left: calc(42% + 10px);
+    right: 50%;
+}
+
+.roadmap-level:nth-child(even)::after {
+    right: calc(42% + 10px);
+    left: 50%;
+}
+
+/* ==================== RESPONSIVE — NEW FEATURES ==================== */
+@media (max-width: 768px) {
+    /* Countdown */
+    .countdown-section {
+        padding: 2rem 1rem;
+    }
+
+    .countdown-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .countdown-event-name {
+        font-size: 0.92rem;
+        padding: 0 0.5rem;
+    }
+
+    .countdown-container {
+        gap: 0.6rem;
+        justify-content: center;
+    }
+
+    .countdown-box {
+        padding: 0.8rem 1rem;
+        min-width: 65px;
+        border-radius: 10px;
+    }
+
+    .countdown-number {
+        font-size: 1.8rem;
+    }
+
+    .countdown-label {
+        font-size: 0.65rem;
+    }
+
+    .countdown-cta .add-cal-btn {
+        font-size: 0.85rem;
+        padding: 0.6rem 1.2rem;
+        min-height: 44px;
+    }
+
+    /* Roadmap */
+    .roadmap-section {
+        padding: 2.5rem 1rem;
+    }
+
+    .roadmap-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .roadmap-subtitle {
+        font-size: 0.88rem;
+        margin-bottom: 2rem;
+    }
+
+    .roadmap-tree::before {
+        left: 20px;
+    }
+
+    .roadmap-level {
+        justify-content: flex-end !important;
+        padding-left: 50px;
+        margin-bottom: 0.6rem;
+    }
+
+    .roadmap-node {
+        width: 100%;
+        max-width: 100%;
+        padding: 1rem;
+    }
+
+    .roadmap-node h4 {
+        font-size: 1rem;
+    }
+
+    .roadmap-node p {
+        font-size: 0.82rem;
+    }
+
+    .roadmap-node .node-level-badge {
+        font-size: 0.6rem;
+    }
+
+    .roadmap-node .skill-tag {
+        font-size: 0.65rem;
+        padding: 0.12rem 0.45rem;
+    }
+
+    .roadmap-level .timeline-dot {
+        left: 20px;
+        transform: translateX(-50%);
+        width: 14px;
+        height: 14px;
+    }
+
+    .roadmap-level:hover .timeline-dot {
+        transform: translateX(-50%) scale(1.3);
+    }
+
+    .roadmap-level::after {
+        left: 28px !important;
+        right: auto !important;
+        width: 22px !important;
+    }
+
+    /* Terminal */
+    .terminal-window {
+        width: 95%;
+        height: 350px;
+    }
+
+    .terminal-body {
+        font-size: 0.8rem;
+    }
+
+    .terminal-input {
+        font-size: 0.8rem;
+    }
+
+    .terminal-hint {
+        display: none;
+    }
+
+    /* Theme toggle in mobile menu */
+    .theme-toggle {
+        margin: 0.6rem auto;
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+    }
+}
+
+/* ==================== TEAM GRID: 2-ROW LAYOUT ==================== */
+.team-row-faculty {
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.team-row-students {
+    justify-content: center;
+}
+
+/* On mobile, keep both rows as 2-column grids */
+@media (max-width: 768px) {
+    .team-row-faculty,
+    .team-row-students {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
+        margin-top: 0.6rem;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 420px) {
+    .countdown-box {
+        padding: 0.8rem 1rem;
+        min-width: 60px;
+    }
+
+    .countdown-number {
+        font-size: 1.6rem;
+    }
+}

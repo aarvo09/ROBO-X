@@ -81,6 +81,33 @@
     </div>
 </section>
 
+<!-- Event Countdown (#10) -->
+<section id="countdown" class="countdown-section">
+    <h2>Next Event</h2>
+    <p class="countdown-event-name"><i class="fa-solid fa-bolt"></i> Workshop on Robotics &amp; Drone — Feb 13, 2026</p>
+    <div class="countdown-container">
+        <div class="countdown-box">
+            <span class="countdown-number" id="cd-days">0</span>
+            <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-box">
+            <span class="countdown-number" id="cd-hours">0</span>
+            <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-box">
+            <span class="countdown-number" id="cd-mins">0</span>
+            <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-box">
+            <span class="countdown-number" id="cd-secs">0</span>
+            <span class="countdown-label">Seconds</span>
+        </div>
+    </div>
+    <div class="countdown-cta">
+        <a href="/workshop" class="add-cal-btn"><i class="fa-solid fa-calendar-check"></i> View Event Details</a>
+    </div>
+</section>
+
 <section id="activities" class="content-section">
     <h2>What We Do</h2>
     <div class="card-container">
@@ -106,14 +133,91 @@
     </div>
 </section>
 
+<!-- Learning Roadmap (#4) -->
+<section id="roadmap" class="roadmap-section">
+    <h2>Learning Roadmap</h2>
+    <p class="roadmap-subtitle">Your journey from beginner to robotics expert</p>
+    <div class="roadmap-tree">
+        <!-- Level 1: Beginner -->
+        <div class="roadmap-level">
+            <div class="roadmap-node level-beginner">
+                <span class="node-level-badge">Beginner</span>
+                <h4><i class="fa-solid fa-seedling"></i> Foundations</h4>
+                <p>Start with the basics — electronics, circuits, and your first Arduino project.</p>
+                <div class="node-skills">
+                    <span class="skill-tag">Arduino</span>
+                    <span class="skill-tag">Basic Electronics</span>
+                    <span class="skill-tag">C/C++</span>
+                    <span class="skill-tag">Breadboard</span>
+                </div>
+            </div>
+            <div class="timeline-dot"></div>
+        </div>
+
+        <!-- Level 2: Intermediate -->
+        <div class="roadmap-level">
+            <div class="roadmap-node level-intermediate">
+                <span class="node-level-badge">Intermediate</span>
+                <h4><i class="fa-solid fa-microchip"></i> Sensors &amp; Actuators</h4>
+                <p>Work with sensors, motors, and build your first autonomous line-follower bot.</p>
+                <div class="node-skills">
+                    <span class="skill-tag">Sensors</span>
+                    <span class="skill-tag">Motor Drivers</span>
+                    <span class="skill-tag">ESP32</span>
+                    <span class="skill-tag">Python</span>
+                </div>
+            </div>
+            <div class="timeline-dot"></div>
+        </div>
+
+        <!-- Level 3: Advanced -->
+        <div class="roadmap-level">
+            <div class="roadmap-node level-advanced">
+                <span class="node-level-badge">Advanced</span>
+                <h4><i class="fa-solid fa-brain"></i> AI &amp; Computer Vision</h4>
+                <p>Integrate AI models, camera-based navigation, and real-time decision making.</p>
+                <div class="node-skills">
+                    <span class="skill-tag">OpenCV</span>
+                    <span class="skill-tag">ROS</span>
+                    <span class="skill-tag">Raspberry Pi</span>
+                    <span class="skill-tag">ML / AI</span>
+                </div>
+            </div>
+            <div class="timeline-dot"></div>
+        </div>
+
+        <!-- Level 4: Expert -->
+        <div class="roadmap-level">
+            <div class="roadmap-node level-expert">
+                <span class="node-level-badge">Expert</span>
+                <h4><i class="fa-solid fa-rocket"></i> Full Autonomous Systems</h4>
+                <p>Design drones, robotic arms, and compete at national-level robotics competitions.</p>
+                <div class="node-skills">
+                    <span class="skill-tag">Drones</span>
+                    <span class="skill-tag">SLAM</span>
+                    <span class="skill-tag">3D Printing</span>
+                    <span class="skill-tag">PCB Design</span>
+                </div>
+            </div>
+            <div class="timeline-dot"></div>
+        </div>
+    </div>
+</section>
+
 <section id="team" class="content-section alt-bg">
     <h2>Our Team</h2>
     <p>Meet the minds behind the machines.</p>
     <!-- Placeholder for team members -->
     <div class="team-visual-container">
-        <div class="team-grid">
+        <!-- Row 1: Faculty (HOD + Coordinator) -->
+        <div class="team-grid team-row-faculty">
             <!-- HOD Sir -->
-            <div class="team-card" id="member-hod">
+            <div class="team-card" id="member-hod"
+                data-name="Ajay Kumar Singh"
+                data-role="Head of Department"
+                data-info="Head of Department, School of Computer Engineering (SOCE) at Chandigarh University"
+                data-quote="Education is not the learning of facts, but the training of the mind to think."
+                data-img="{{ url_for('static', filename='images/hodsir1.jpeg') }}">
                 <div class="member-avatar">
                     <img src="{{ url_for('static', filename='images/hodsir1.jpeg') }}" alt="HOD Sir">
                 </div>
@@ -121,13 +225,28 @@
                 <p>Head of Department</p>
             </div>
             <!-- Club Coordinator -->
-            <div class="team-card" id="member-coordinator">
-                <div class="member-avatar"></div>
+            <div class="team-card" id="member-coordinator"
+                data-name="Ratnesh Kumar Shukla"
+                data-role="Club Coordinator"
+                data-info="Faculty at Chandigarh University, Lucknow"
+                data-quote="The best way to predict the future is to create it."
+                data-img="{{ url_for('static', filename='images/ratneshsir.jpeg') }}">
+                <div class="member-avatar">
+                    <img src="{{ url_for('static', filename='images/ratneshsir.jpeg') }}" alt="Ratnesh Kumar Shukla">
+                </div>
                 <h4>Ratnesh Kumar Shukla</h4>
                 <p>Club Coordinator</p>
             </div>
+        </div>
+        <!-- Row 2: Student Leaders -->
+        <div class="team-grid team-row-students">
             <!-- President -->
-            <div class="team-card" id="member-president">
+            <div class="team-card" id="member-president"
+                data-name="Sujal Negi"
+                data-role="President"
+                data-info="Student of B.Tech CSE — Data Science at Chandigarh University"
+                data-quote="Leadership is not about being in charge; it's about taking care of those in your charge."
+                data-img="{{ url_for('static', filename='images/sujalg.jpeg') }}">
                 <div class="member-avatar">
                     <img src="{{ url_for('static', filename='images/sujalg.jpeg') }}" alt="Sujal Negi">
                 </div>
@@ -135,7 +254,13 @@
                 <p>President</p>
             </div>
             <!-- Vice President -->
-            <div class="team-card" id="member-vp">
+            <div class="team-card" id="member-vp"
+                data-name="Arvind Kumar Singh"
+                data-role="Vice President"
+                data-info="Student of B.Tech CSE — Data Science at Chandigarh University"
+                data-quote="Innovation distinguishes between a leader and a follower."
+                data-img="{{ url_for('static', filename='images/imagea.png') }}"
+                data-img-position="top">
                 <div class="member-avatar">
                     <img src="{{ url_for('static', filename='images/imagea.png') }}" alt="Arvind Kumar Singh"
                         style="object-position: top; transform: scale(1); transform-origin: top;">
@@ -144,12 +269,37 @@
                 <p>Vice President</p>
             </div>
             <!-- Secretary -->
-            <div class="team-card" id="member-secretary">
+            <div class="team-card" id="member-secretary"
+                data-name="Taksh Singh"
+                data-role="Secretary"
+                data-info="Student of B.Tech CSE — Data Science at Chandigarh University"
+                data-quote="Great things are done by a series of small things brought together."
+                data-img="{{ url_for('static', filename='images/imgat.png') }}">
                 <div class="member-avatar">
                     <img src="{{ url_for('static', filename='images/imgat.png') }}" alt="Taksh Singh">
                 </div>
                 <h4>Taksh Singh</h4>
                 <p>Secretary</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Member Modal -->
+    <div class="member-modal-overlay" id="member-modal">
+        <div class="member-modal">
+            <button class="modal-close" id="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-avatar">
+                <img src="" alt="" id="modal-img">
+                <div class="modal-avatar-placeholder" id="modal-placeholder">👤</div>
+            </div>
+            <div class="modal-body">
+                <h3 id="modal-name"></h3>
+                <span class="modal-role" id="modal-role"></span>
+                <p class="modal-info" id="modal-info"></p>
+                <div class="modal-quote">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <span id="modal-quote"></span>
+                </div>
             </div>
         </div>
     </div>
