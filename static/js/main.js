@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalClose = document.getElementById('modal-close');
 
     // Open modal on team card click
-    document.querySelectorAll('.team-card').forEach(card => {
+    document.querySelectorAll('.home-team-card').forEach(card => {
         card.addEventListener('click', () => {
             const name = card.dataset.name;
             const role = card.dataset.role;
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const img = card.dataset.img;
             const imgPosition = card.dataset.imgPosition || 'center';
 
-            if (!name) return; // Skip if no data
+            if (!name) return;
 
             modalName.textContent = name;
             modalRole.textContent = role;
@@ -90,10 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 modalImg.alt = name;
                 modalImg.style.display = 'block';
                 modalImg.style.objectPosition = imgPosition;
-                modalPlaceholder.style.display = 'none';
+                if (modalPlaceholder) modalPlaceholder.style.display = 'none';
             } else {
                 modalImg.style.display = 'none';
-                modalPlaceholder.style.display = 'block';
+                if (modalPlaceholder) modalPlaceholder.style.display = 'block';
             }
 
             modal.classList.add('active');
@@ -123,4 +123,19 @@ document.addEventListener('DOMContentLoaded', () => {
             closeModal();
         }
     });
+
+    // ==================== HOME TEAM SCROLL REVEAL ====================
+    const homeTeamCards = document.querySelectorAll('.home-team-card');
+    if (homeTeamCards.length > 0) {
+        const teamObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    teamObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        homeTeamCards.forEach(card => teamObserver.observe(card));
+    }
 });

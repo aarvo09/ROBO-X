@@ -10,10 +10,6 @@ def index():
 def activities():
     return render_template('index.html') # Placeholder for now
 
-@app.route('/team')
-def team():
-    return render_template('index.html') # Placeholder for now
-
 @app.route('/join')
 def join():
     return render_template('join.html')

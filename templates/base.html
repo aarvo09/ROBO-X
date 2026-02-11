@@ -102,8 +102,8 @@
                 <p><i class="fa-solid fa-envelope"></i> roboxclubcu@gmail.com</p>
                 <p><i class="fa-solid fa-location-dot"></i> Chandigarh University, Unnao</p>
                 <div class="social-links">
-                    <a href="https://www.instagram.com/roboxclub_cu?igsh=MXIyMjVpbWlhZmo2Zw==" target="_blank"><i
-                            class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/roboxclub_cu?igsh=MXIyMjVpbWlhZmo2Zw==" target="_blank" style="text-decoration: none; font-size: 0.95rem;"><i
+                            class="fa-brands fa-instagram"></i> Follow us on Instagram</a>
                 </div>
             </div>
         </div>
@@ -117,39 +117,6 @@
         <img src="{{ url_for('static', filename='images/robox_mascot_raw.png') }}" alt="Guide Robot" id="robot-img">
     </div>
 
-    <!-- Charging Station -->
-    <div id="charging-station">
-        <img src="{{ url_for('static', filename='images/image-removebg-preview.png') }}" alt="Charging Station">
-    </div>
-
-    <!-- Terminal Easter Egg (Ctrl + `) -->
-    <div class="terminal-overlay" id="terminal-overlay">
-        <div class="terminal-window">
-            <div class="terminal-header">
-                <div class="terminal-dots">
-                    <span></span><span></span><span></span>
-                </div>
-                <span class="terminal-title">robox@club:~</span>
-                <button class="terminal-close" id="terminal-close"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            <div class="terminal-body" id="terminal-body">
-                <p class="terminal-output-line ascii">  ____        _             __  __</p>
-                <p class="terminal-output-line ascii"> |  _ \ ___  | |__   ___   \ \/ /</p>
-                <p class="terminal-output-line ascii"> | |_) / _ \ | '_ \ / _ \   \  / </p>
-                <p class="terminal-output-line ascii"> |  _ < (_) || |_) | (_) |  /  \ </p>
-                <p class="terminal-output-line ascii"> |_| \_\___/ |_.__/ \___/  /_/\_\</p>
-                <p class="terminal-output-line"></p>
-                <p class="terminal-output-line info">  Welcome to Robo-X Terminal v1.0</p>
-                <p class="terminal-output-line">  Type "help" for available commands.</p>
-                <p class="terminal-output-line"></p>
-                <div class="terminal-input-line">
-                    <span class="terminal-prompt">robox@club:~$</span>
-                    <input type="text" class="terminal-input" id="terminal-input" autocomplete="off" spellcheck="false">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="terminal-hint">Press Ctrl + ` to open terminal</div>
 
     <script src="{{ url_for('static', filename='js/guide.js') }}"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>

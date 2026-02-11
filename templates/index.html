@@ -27,7 +27,7 @@
         </div>
 
         <div class="hero-visual">
-            <img src="{{ url_for('static', filename='images/university_campus.png') }}"
+            <img src="https://i.ibb.co/KjzT40s6/2024-05-11-10-43-27-cu-up-campus-image-topview.png"
                 alt="Chandigarh University Campus" class="hero-campus-img">
         </div>
     </div>
@@ -145,10 +145,15 @@
                 <h4><i class="fa-solid fa-seedling"></i> Foundations</h4>
                 <p>Start with the basics — electronics, circuits, and your first Arduino project.</p>
                 <div class="node-skills">
-                    <span class="skill-tag">Arduino</span>
-                    <span class="skill-tag">Basic Electronics</span>
-                    <span class="skill-tag">C/C++</span>
-                    <span class="skill-tag">Breadboard</span>
+                    <a href="https://www.youtube.com/watch?v=S0IYkxz_AFA&list=PL0s3O6GgLL5fPA2EN7tHJiNXc90swBfYj"
+                        target="_blank" class="skill-tag">Arduino <i class="fa-solid fa-up-right-from-square"></i></a>
+                    <a href="https://www.youtube.com/watch?v=NRj6gzah7JA&list=PL4g1oAdmuCfqmYvURLzVFkMMUI7839biN"
+                        target="_blank" class="skill-tag">Basic Electronics <i
+                            class="fa-solid fa-up-right-from-square"></i></a>
+                    <a href="https://www.youtube.com/watch?v=PzJayPUPV6A" target="_blank" class="skill-tag">C/C++ <i
+                            class="fa-solid fa-up-right-from-square"></i></a>
+                    <a href="https://www.youtube.com/watch?v=NREtn59WPho" target="_blank" class="skill-tag">Breadboard
+                        <i class="fa-solid fa-up-right-from-square"></i></a>
                 </div>
             </div>
             <div class="timeline-dot"></div>
@@ -205,104 +210,95 @@
 </section>
 
 <section id="team" class="content-section alt-bg">
-    <h2>Our Team</h2>
-    <p>Meet the minds behind the machines.</p>
-    <!-- Placeholder for team members -->
-    <div class="team-visual-container">
-        <!-- Row 1: Faculty (HOD + Coordinator) -->
-        <div class="team-grid team-row-faculty">
-            <!-- HOD Sir -->
-            <div class="team-card" id="member-hod"
-                data-name="Ajay Kumar Singh"
-                data-role="Head of Department"
+    <div class="home-team-wrapper">
+        <div class="home-team-header">
+            <span class="home-team-tag"><i class="fa-solid fa-users"></i> The Crew</span>
+            <h2>Our Team</h2>
+            <p>Meet the minds behind the machines.</p>
+        </div>
+
+        <!-- Faculty -->
+        <div class="home-team-label">Faculty</div>
+        <div class="home-team-grid home-team-faculty">
+            <div class="home-team-card home-card-lg" data-name=" Dr.Ajay Kumar Singh" data-role="Head of Department"
                 data-info="Head of Department, School of Computer Engineering (SOCE) at Chandigarh University"
                 data-quote="Education is not the learning of facts, but the training of the mind to think."
                 data-img="{{ url_for('static', filename='images/hodsir1.jpeg') }}">
-                <div class="member-avatar">
-                    <img src="{{ url_for('static', filename='images/hodsir1.jpeg') }}" alt="HOD Sir">
+                <div class="home-card-img">
+                    <img src="{{ url_for('static', filename='images/hodsir1.jpeg') }}" alt="Ajay Kumar Singh">
                 </div>
-                <h4>Ajay Kumar Singh</h4>
-                <p>Head of Department</p>
+                <h4>Dr.Ajay Kumar Singh</h4>
+                <span class="home-card-role">Head of Department</span>
             </div>
-            <!-- Club Coordinator -->
-            <div class="team-card" id="member-coordinator"
-                data-name="Ratnesh Kumar Shukla"
-                data-role="Club Coordinator"
+            <div class="home-team-card home-card-lg" data-name="Dr.Ratnesh Kumar Shukla" data-role="Club Coordinator"
                 data-info="Faculty at Chandigarh University, Lucknow"
                 data-quote="The best way to predict the future is to create it."
                 data-img="{{ url_for('static', filename='images/ratneshsir.jpeg') }}">
-                <div class="member-avatar">
+                <div class="home-card-img">
                     <img src="{{ url_for('static', filename='images/ratneshsir.jpeg') }}" alt="Ratnesh Kumar Shukla">
                 </div>
-                <h4>Ratnesh Kumar Shukla</h4>
-                <p>Club Coordinator</p>
+                <h4>Dr.Ratnesh Kumar Shukla</h4>
+                <span class="home-card-role">Club Coordinator</span>
             </div>
         </div>
-        <!-- Row 2: Student Leaders -->
-        <div class="team-grid team-row-students">
-            <!-- President -->
-            <div class="team-card" id="member-president"
-                data-name="Sujal Negi"
-                data-role="President"
+
+        <!-- Leadership -->
+        <div class="home-team-label">Leadership</div>
+        <div class="home-team-grid home-team-leadership">
+            <div class="home-team-card home-card-md" data-name="Sujal Negi" data-role="President"
                 data-info="Student of B.Tech CSE — Data Science at Chandigarh University"
                 data-quote="Leadership is not about being in charge; it's about taking care of those in your charge."
                 data-img="{{ url_for('static', filename='images/sujalg.jpeg') }}">
-                <div class="member-avatar">
+                <div class="home-card-img">
                     <img src="{{ url_for('static', filename='images/sujalg.jpeg') }}" alt="Sujal Negi">
                 </div>
                 <h4>Sujal Negi</h4>
-                <p>President</p>
+                <span class="home-card-role">President</span>
             </div>
-            <!-- Vice President -->
-            <div class="team-card" id="member-vp"
-                data-name="Arvind Kumar Singh"
-                data-role="Vice President"
+            <div class="home-team-card home-card-md" data-name="Arvind Kumar Singh" data-role="Vice President"
                 data-info="Student of B.Tech CSE — Data Science at Chandigarh University"
                 data-quote="Innovation distinguishes between a leader and a follower."
-                data-img="{{ url_for('static', filename='images/imagea.png') }}"
-                data-img-position="top">
-                <div class="member-avatar">
+                data-img="{{ url_for('static', filename='images/imagea.png') }}" data-img-position="top">
+                <div class="home-card-img">
                     <img src="{{ url_for('static', filename='images/imagea.png') }}" alt="Arvind Kumar Singh"
-                        style="object-position: top; transform: scale(1); transform-origin: top;">
+                        style="object-position: top;">
                 </div>
                 <h4>Arvind Kumar Singh</h4>
-                <p>Vice President</p>
+                <span class="home-card-role">Vice President</span>
             </div>
-            <!-- Secretary -->
-            <div class="team-card" id="member-secretary"
-                data-name="Taksh Singh"
-                data-role="Secretary"
+            <div class="home-team-card home-card-md" data-name="Taksh Singh" data-role="Secretary"
                 data-info="Student of B.Tech CSE — Data Science at Chandigarh University"
                 data-quote="Great things are done by a series of small things brought together."
                 data-img="{{ url_for('static', filename='images/imgat.png') }}">
-                <div class="member-avatar">
+                <div class="home-card-img">
                     <img src="{{ url_for('static', filename='images/imgat.png') }}" alt="Taksh Singh">
                 </div>
                 <h4>Taksh Singh</h4>
-                <p>Secretary</p>
+                <span class="home-card-role">Secretary</span>
             </div>
         </div>
-    </div>
 
-    <!-- Team Member Modal -->
-    <div class="member-modal-overlay" id="member-modal">
-        <div class="member-modal">
-            <button class="modal-close" id="modal-close"><i class="fa-solid fa-xmark"></i></button>
-            <div class="modal-avatar">
-                <img src="" alt="" id="modal-img">
-                <div class="modal-avatar-placeholder" id="modal-placeholder">👤</div>
-            </div>
-            <div class="modal-body">
-                <h3 id="modal-name"></h3>
-                <span class="modal-role" id="modal-role"></span>
-                <p class="modal-info" id="modal-info"></p>
-                <div class="modal-quote">
-                    <i class="fa-solid fa-quote-left"></i>
-                    <span id="modal-quote"></span>
+
+
+        <!-- Team Member Modal -->
+        <div class="member-modal-overlay" id="member-modal">
+            <div class="member-modal">
+                <button class="modal-close" id="modal-close"><i class="fa-solid fa-xmark"></i></button>
+                <div class="modal-avatar">
+                    <img src="" alt="" id="modal-img">
+                    <div class="modal-avatar-placeholder" id="modal-placeholder">👤</div>
+                </div>
+                <div class="modal-body">
+                    <h3 id="modal-name"></h3>
+                    <span class="modal-role" id="modal-role"></span>
+                    <p class="modal-info" id="modal-info"></p>
+                    <div class="modal-quote">
+                        <i class="fa-solid fa-quote-left"></i>
+                        <span id="modal-quote"></span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </section>
 
 <section id="contact" class="content-section">
