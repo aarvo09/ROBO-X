@@ -27,7 +27,7 @@
         </div>
 
         <div class="hero-visual">
-            <img src="https://i.ibb.co/KjzT40s6/2024-05-11-10-43-27-cu-up-campus-image-topview.png"
+            <img src="{{ url_for('static', filename='images/university_campus.png') }}"
                 alt="Chandigarh University Campus" class="hero-campus-img">
         </div>
     </div>
@@ -137,6 +137,9 @@
 <section id="roadmap" class="roadmap-section">
     <h2>Learning Roadmap</h2>
     <p class="roadmap-subtitle">Your journey from beginner to robotics expert</p>
+    <p class="roadmap-note" style="font-size: 0.9rem; color: #666; margin-top: -0.5rem; margin-bottom: 2rem;"><i
+            class="fa-solid fa-circle-info" style="color: var(--primary-color);"></i> Tip: Click on the components below
+        to watch tutorials!</p>
     <div class="roadmap-tree">
         <!-- Level 1: Beginner -->
         <div class="roadmap-level">
@@ -166,10 +169,14 @@
                 <h4><i class="fa-solid fa-microchip"></i> Sensors &amp; Actuators</h4>
                 <p>Work with sensors, motors, and build your first autonomous line-follower bot.</p>
                 <div class="node-skills">
-                    <span class="skill-tag">Sensors</span>
-                    <span class="skill-tag">Motor Drivers</span>
-                    <span class="skill-tag">ESP32</span>
-                    <span class="skill-tag">Python</span>
+                    <a href="https://youtu.be/IIf7zH5cIX8?si=YAQHHW9Vsn3tndTL" target="_blank" class="skill-tag">Sensors
+                        <i class="fa-solid fa-up-right-from-square"></i></a>
+                    <a href="https://youtu.be/PVyAcgYkzDs?si=7slkVow8cCw4gwro" target="_blank" class="skill-tag">Motor
+                        Drivers <i class="fa-solid fa-up-right-from-square"></i></a>
+                    <a href="https://youtu.be/n19DJIPB1sE?si=WcmVsHGA_efCKzja" target="_blank" class="skill-tag">ESP32
+                        <i class="fa-solid fa-up-right-from-square"></i></a>
+                    <a href="https://youtu.be/ix9cRaBkVe0?si=waGM-9W2u-49WYHM" target="_blank" class="skill-tag">Python
+                        <i class="fa-solid fa-up-right-from-square"></i></a>
                 </div>
             </div>
             <div class="timeline-dot"></div>
@@ -182,10 +189,15 @@
                 <h4><i class="fa-solid fa-brain"></i> AI &amp; Computer Vision</h4>
                 <p>Integrate AI models, camera-based navigation, and real-time decision making.</p>
                 <div class="node-skills">
-                    <span class="skill-tag">OpenCV</span>
-                    <span class="skill-tag">ROS</span>
-                    <span class="skill-tag">Raspberry Pi</span>
-                    <span class="skill-tag">ML / AI</span>
+                    <a href="https://youtu.be/kdLM6AOd2vc?si=0ddPAdpcYcoHQh5b" target="_blank" class="skill-tag">OpenCV
+                        <i class="fa-solid fa-up-right-from-square"></i></a>
+                    <a href="https://youtu.be/ehtUb55Rmmg?si=UjLWQ49tUPWv0wFI" target="_blank" class="skill-tag">ROS <i
+                            class="fa-solid fa-up-right-from-square"></i></a>
+                    <a href="https://youtube.com/playlist?list=PLoAx5AQlvczXOJcyb9wC11DGYfTyGnX1u&si=KBjYzHyCdwzXU-bK"
+                        target="_blank" class="skill-tag">Raspberry Pi <i
+                            class="fa-solid fa-up-right-from-square"></i></a>
+                    <a href="https://youtu.be/6dqAwh2MCg0?si=yoEiI1I7zEpfDebo" target="_blank" class="skill-tag">ML / AI
+                        <i class="fa-solid fa-up-right-from-square"></i></a>
                 </div>
             </div>
             <div class="timeline-dot"></div>
@@ -198,10 +210,14 @@
                 <h4><i class="fa-solid fa-rocket"></i> Full Autonomous Systems</h4>
                 <p>Design drones, robotic arms, and compete at national-level robotics competitions.</p>
                 <div class="node-skills">
-                    <span class="skill-tag">Drones</span>
-                    <span class="skill-tag">SLAM</span>
-                    <span class="skill-tag">3D Printing</span>
-                    <span class="skill-tag">PCB Design</span>
+                    <a href="https://youtube.com/playlist?list=PLPthmMr7vKySs8WjFCb_QnYbfEXOOrocy&si=UTDorTG_aDfti7gh"
+                        target="_blank" class="skill-tag">Drones <i class="fa-solid fa-up-right-from-square"></i></a>
+                    <a href="https://youtu.be/U6vr3iNrwRA?si=HlZC8gfdKrpAsg1c" target="_blank" class="skill-tag">SLAM <i
+                            class="fa-solid fa-up-right-from-square"></i></a>
+                    <a href="https://youtu.be/f94CnlQ0eq4?si=Ljb91wvwdyaDj_qS" target="_blank" class="skill-tag">3D
+                        Printing <i class="fa-solid fa-up-right-from-square"></i></a>
+                    <a href="https://youtu.be/cSNVxXNsLpA?si=JcqO9XV4HfR16ghi" target="_blank" class="skill-tag">PCB
+                        Design <i class="fa-solid fa-up-right-from-square"></i></a>
                 </div>
             </div>
             <div class="timeline-dot"></div>
