@@ -16,7 +16,7 @@
     --border-color: #ff3b3b;
     /* Red borders */
 
-    --font-header: 'Chewy', cursive;
+    --font-header: 'Poppins', sans-serif;
     --font-body: 'Balsamiq Sans', cursive;
 }
 
@@ -756,7 +756,9 @@ h4 {
 }
 
 .member-avatar::after {
-    content: '👤';
+    content: '\f007';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
     font-size: 3rem;
     position: absolute;
     top: 50%;
@@ -1559,124 +1561,460 @@ h4 {
     margin-top: 2.5rem;
 }
 
-/* Workshop Page Styles */
-.workshop-hero {
-    min-height: 80vh;
+/* ==================== WORKSHOP PAGE — REDESIGNED ==================== */
+
+/* Hero Banner */
+.ws-hero {
+    position: relative;
+    min-height: 45vh;
     display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: center;
-    padding: 6rem 2rem 2rem 2rem;
-    background-color: var(--bg-color);
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    overflow: hidden;
+    margin-top: 0;
 }
 
-.workshop-container {
+.ws-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: url('../images/medium_density_doodle_bg.png') repeat;
+    background-size: 300px;
+    opacity: 0.04;
+}
+
+.ws-hero-content {
+    position: relative;
+    text-align: center;
+    padding: 6rem 2rem 3rem;
+    z-index: 1;
+}
+
+.ws-status-badge {
+    display: inline-block;
+    background: #27ae60;
+    color: #fff;
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 1.2rem;
+}
+
+.ws-hero-title {
+    font-family: var(--font-header);
+    font-size: 3.5rem;
+    color: #fff;
+    margin: 0 0 0.8rem;
+    letter-spacing: -0.5px;
+}
+
+.ws-hero-subtitle {
+    color: rgba(255,255,255,0.7);
+    font-size: 1.15rem;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Detail Section */
+.ws-detail {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.ws-detail-container {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.ws-info-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.ws-number {
+    font-family: var(--font-header);
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    opacity: 0.15;
+    line-height: 1;
+    min-width: 60px;
+}
+
+.ws-title {
+    font-family: var(--font-header);
+    font-size: 2rem;
+    margin: 0 0 0.3rem;
+    color: var(--text-color);
+    line-height: 1.2;
+}
+
+.ws-tagline {
+    color: #888;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* Meta Cards */
+.ws-meta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.ws-meta-card {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    max-width: 1100px;
-    width: 100%;
-    gap: 4rem;
+    gap: 0.8rem;
+    padding: 1rem 1.2rem;
+    background: var(--card-bg, #fff);
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: box-shadow 0.3s ease;
 }
 
-.workshop-content {
-    flex: 1;
+.ws-meta-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
 }
 
-.event-badge {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: #fff;
-    padding: 0.4rem 1rem;
-    border-radius: 50px;
+.ws-meta-card > i {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    width: 20px;
+    text-align: center;
+}
+
+.ws-meta-label {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #999;
+    margin-bottom: 0.15rem;
+}
+
+.ws-meta-value {
+    display: block;
     font-size: 0.9rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    letter-spacing: 0.5px;
-}
-
-.workshop-content h1 {
-    font-size: 3.5rem;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
+    font-weight: 600;
     color: var(--text-color);
 }
 
-.event-meta {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 2rem;
-    font-size: 1.1rem;
-    color: #555;
+.ws-meta-value.ws-completed {
+    color: #27ae60;
 }
 
-.meta-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.meta-item i {
-    color: var(--primary-color);
-}
-
-.powered-by {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    padding: 1rem 0;
-}
-
-.powered-by p {
-    margin: 0;
-    font-weight: bold;
-    color: #666;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-}
-
-.partner-logo {
-    height: 40px;
-    /* Adjust based on logo aspect ratio */
+.ws-partner-logo {
+    height: 28px;
     width: auto;
+    object-fit: contain;
+    margin-top: 2px;
 }
 
-.workshop-description {
+.ws-description {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+/* Key Takeaways */
+.ws-highlights {
+    background: var(--card-bg, #fff);
+    border-radius: 14px;
+    padding: 1.5rem 1.8rem;
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+.ws-highlights h4 {
+    font-family: var(--font-header);
     font-size: 1.1rem;
-    color: #444;
-    line-height: 1.7;
-    margin-bottom: 2.5rem;
+    margin: 0 0 1rem;
+    color: var(--text-color);
 }
 
-.workshop-visual {
-    flex: 1;
+.ws-highlights h4 i {
+    color: var(--primary-color);
+    margin-right: 0.4rem;
+}
+
+.ws-highlights ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ws-highlights ul li {
+    padding: 0.5rem 0;
+    font-size: 0.92rem;
+    color: #555;
     display: flex;
-    justify-content: center;
     align-items: center;
-    opacity: 0.8;
+    gap: 0.6rem;
+}
+
+.ws-highlights ul li i {
+    color: var(--primary-color);
+    font-size: 0.65rem;
+}
+
+/* Poster */
+.ws-poster {
+    position: sticky;
+    top: 100px;
+}
+
+.ws-poster img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    transition: transform 0.4s ease;
+}
+
+.ws-poster img:hover {
+    transform: translateY(-4px);
+}
+
+/* Gallery Section */
+.ws-gallery-section {
+    padding: 4rem 2rem 5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.ws-gallery-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.ws-gallery-tag {
+    display: inline-block;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0.35rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+}
+
+.ws-gallery-header h2 {
+    font-family: var(--font-header);
+    font-size: 2rem;
+    margin: 0 0 0.4rem;
+}
+
+.ws-gallery-header p {
+    color: #888;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.ws-gallery-divider {
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 1.2rem auto 0;
+    border-radius: 10px;
+}
+
+/* Gallery Grid */
+.ws-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.ws-gallery-item {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.ws-gallery-item.ws-gallery-wide {
+    grid-column: span 2;
+}
+
+.ws-gallery-item img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.ws-gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.ws-gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.75) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.ws-gallery-item:hover .ws-gallery-overlay {
+    opacity: 1;
+}
+
+.ws-gallery-overlay span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+    color: #fff;
+    font-size: 1.8rem;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.ws-gallery-item:hover .ws-gallery-overlay span {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.ws-gallery-overlay p {
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Lightbox */
+.ws-lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+    backdrop-filter: blur(8px);
+}
+
+.ws-lightbox.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.ws-lightbox-close {
+    position: absolute;
+    top: 24px;
+    right: 30px;
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: #fff;
+    font-size: 1.4rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ws-lightbox-close:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+#ws-lightbox-img {
+    max-width: 88%;
+    max-height: 88%;
+    border-radius: 10px;
+    box-shadow: 0 10px 60px rgba(0,0,0,0.5);
+    object-fit: contain;
+    transform: scale(0.92);
+    transition: transform 0.35s ease;
+}
+
+.ws-lightbox.active #ws-lightbox-img {
+    transform: scale(1);
+}
+
+/* Workshop Responsive */
+@media (max-width: 900px) {
+    .ws-detail-container {
+        grid-template-columns: 1fr;
+    }
+
+    .ws-poster {
+        position: static;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .ws-hero-title {
+        font-size: 2.5rem;
+    }
 }
 
 @media (max-width: 768px) {
-    .workshop-container {
-        flex-direction: column;
-        text-align: center;
+    .ws-meta-grid {
+        grid-template-columns: 1fr;
     }
 
-    .workshop-content h1 {
-        font-size: 2.5rem;
+    .ws-gallery-grid {
+        grid-template-columns: 1fr 1fr;
     }
 
-    .event-meta {
+    .ws-gallery-item.ws-gallery-wide {
+        grid-column: span 2;
+    }
+
+    .ws-gallery-item img {
+        height: 200px;
+    }
+
+    .ws-info-header {
         flex-direction: column;
         gap: 0.5rem;
-        align-items: center;
     }
 
-    .powered-by {
-        justify-content: center;
+    .ws-number {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .ws-gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ws-gallery-item.ws-gallery-wide {
+        grid-column: auto;
+    }
+
+    .ws-hero-title {
+        font-size: 2rem;
+    }
+
+    .ws-hero-content {
+        padding: 5rem 1.5rem 2.5rem;
     }
 }
 
@@ -1982,10 +2320,6 @@ h4 {
 
     .hero-text p {
         font-size: 1rem;
-    }
-
-    .workshop-container {
-        gap: 2rem;
     }
 
     .content-section {
@@ -2453,62 +2787,6 @@ h4 {
         font-size: 0.78rem;
     }
 
-    /* --- Workshop Page Mobile --- */
-    .workshop-hero {
-        padding: 2rem 1rem;
-        min-height: auto;
-    }
-
-    .workshop-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 1.5rem;
-    }
-
-    .workshop-content h1 {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .event-meta {
-        flex-direction: column;
-        gap: 0.5rem;
-        align-items: center;
-        font-size: 0.92rem;
-        margin-bottom: 1rem;
-    }
-
-    .event-badge {
-        font-size: 0.78rem;
-        padding: 0.3rem 0.8rem;
-    }
-
-    .powered-by {
-        justify-content: center;
-        flex-wrap: wrap;
-        padding: 0.6rem 0;
-        margin-bottom: 1rem;
-    }
-
-    .powered-by p {
-        font-size: 0.75rem;
-    }
-
-    .partner-logo {
-        height: 30px;
-    }
-
-    .workshop-description {
-        font-size: 0.9rem;
-        margin-bottom: 1.5rem;
-        line-height: 1.6;
-    }
-
-    .workshop-visual img {
-        max-width: 100% !important;
-        border-radius: 10px !important;
-    }
-
     /* --- Notification FAB Mobile --- */
     .notification-container {
         right: auto;
@@ -2793,15 +3071,6 @@ h4 {
 
     .footer-col p {
         font-size: 0.8rem;
-    }
-
-    /* Workshop */
-    .workshop-content h1 {
-        font-size: 1.3rem;
-    }
-
-    .workshop-description {
-        font-size: 0.84rem;
     }
 
     /* Notification */

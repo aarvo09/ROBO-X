@@ -1,43 +1,149 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<section class="workshop-hero">
-    <div class="workshop-container">
-        <div class="workshop-content">
-            <span class="event-badge">Upcoming Workshop</span>
-            <h1>UAV Technology & Drone Building</h1>
-            <div class="event-meta">
-                <div class="meta-item">
+
+<!-- Workshop Hero Banner -->
+<section class="ws-hero">
+    <div class="ws-hero-overlay"></div>
+    <div class="ws-hero-content">
+        <span class="ws-status-badge"><i class="fa-solid fa-circle-check"></i> Successfully Completed</span>
+        <h1 class="ws-hero-title">Our Workshops</h1>
+        <p class="ws-hero-subtitle">Where ideas take flight and innovation meets hands-on experience</p>
+    </div>
+</section>
+
+<!-- Workshop Detail Section -->
+<section class="ws-detail">
+    <div class="ws-detail-container">
+        <!-- Left: Info -->
+        <div class="ws-info">
+            <div class="ws-info-header">
+                <span class="ws-number">01</span>
+                <div>
+                    <h2 class="ws-title">UAV Technology & Drone Building</h2>
+                    <p class="ws-tagline">An immersive journey into the world of unmanned aerial vehicles</p>
+                </div>
+            </div>
+
+            <div class="ws-meta-grid">
+                <div class="ws-meta-card">
                     <i class="fa-solid fa-calendar-days"></i>
-                    <span>January 13, 2026</span>
+                    <div>
+                        <span class="ws-meta-label">Date</span>
+                        <span class="ws-meta-value">February 13, 2026</span>
+                    </div>
                 </div>
-                <div class="meta-item">
+                <div class="ws-meta-card">
                     <i class="fa-solid fa-location-dot"></i>
-                    <span>Seminar Hall, Chandigarh University Unnao </span>
+                    <div>
+                        <span class="ws-meta-label">Venue</span>
+                        <span class="ws-meta-value">Seminar Hall, CU Unnao</span>
+                    </div>
+                </div>
+                <div class="ws-meta-card">
+                    <i class="fa-solid fa-handshake"></i>
+                    <div>
+                        <span class="ws-meta-label">In Collaboration With</span>
+                        <img src="{{ url_for('static', filename='images/bamboocopter.png') }}" alt="Bamboo Copter" class="ws-partner-logo">
+                    </div>
+                </div>
+                <div class="ws-meta-card">
+                    <i class="fa-solid fa-flag-checkered"></i>
+                    <div>
+                        <span class="ws-meta-label">Status</span>
+                        <span class="ws-meta-value ws-completed"><i class="fa-solid fa-check-double"></i> Completed</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="powered-by">
-                <p>Powered by</p>
-                <img src="{{ url_for('static', filename='images/bamboocopter.png') }}" alt="Bamboo Copter"
-                    class="partner-logo">
-            </div>
-
-            <p class="workshop-description">
-                Join us for an immersive hands-on workshop on Unmanned Aerial Vehicles (UAVs).
-                Learn the dynamics of flight, assemble your own drone, and understand the future of aviation technology.
-                This event is brought to you in collaboration with <strong>Bamboo Copter</strong>.
+            <p class="ws-description">
+                Students got hands-on experience with Unmanned Aerial Vehicles (UAVs) — learning the dynamics of flight, 
+                assembling drones from scratch, and exploring the future of aviation technology. The workshop was brought 
+                to life in collaboration with <strong>Bamboo Copter</strong>, making it a truly unforgettable experience.
             </p>
 
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjDL7UZOPmHIteSAZwzfAHIxiRXrEu8Ew8Tq4fdtg5Ugsn8Q/viewform#/"
-                class="doodle-btn primary-btn" target="_blank">Register Now <i class="fa-solid fa-arrow-right"></i></a>
+            <div class="ws-highlights">
+                <h4><i class="fa-solid fa-star"></i> Key Takeaways</h4>
+                <ul>
+                    <li><i class="fa-solid fa-chevron-right"></i> Flight dynamics & aerodynamics fundamentals</li>
+                    <li><i class="fa-solid fa-chevron-right"></i> Hands-on drone assembly & calibration</li>
+                    <li><i class="fa-solid fa-chevron-right"></i> Understanding UAV applications in real world</li>
+                    <li><i class="fa-solid fa-chevron-right"></i> Interactive Q&A with industry experts</li>
+                </ul>
+            </div>
         </div>
 
-        <div class="workshop-visual">
-            <!-- You can add a drone image here if available, or just a placeholder visual/icon -->
-            <img src="{{ url_for('static', filename='images/registration poster (3).jpeg') }}" alt="Workshop Poster"
-                style="width: 100%; max-width: 400px; height: auto; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+        <!-- Right: Poster -->
+        <div class="ws-poster">
+            <img src="{{ url_for('static', filename='images/registration poster (3).jpeg') }}" alt="Workshop Poster">
         </div>
     </div>
 </section>
+
+<!-- Gallery Section -->
+<section class="ws-gallery-section">
+    <div class="ws-gallery-header">
+        <span class="ws-gallery-tag"><i class="fa-solid fa-camera"></i> Gallery</span>
+        <h2>Workshop Highlights</h2>
+        <p>Capturing the energy and spirit of our first workshop</p>
+        <div class="ws-gallery-divider"></div>
+    </div>
+
+    <div class="ws-gallery-grid">
+        <div class="ws-gallery-item ws-gallery-wide" onclick="openLightbox(this)">
+            <img src="{{ url_for('static', filename='images/UMC09728.jpg') }}" alt="Workshop Session">
+            <div class="ws-gallery-overlay">
+                <span><i class="fa-solid fa-expand"></i></span>
+                <p>Workshop Session</p>
+            </div>
+        </div>
+        <div class="ws-gallery-item" onclick="openLightbox(this)">
+            <img src="{{ url_for('static', filename='images/UMC09801.jpg') }}" alt="Hands-on Learning">
+            <div class="ws-gallery-overlay">
+                <span><i class="fa-solid fa-expand"></i></span>
+                <p>Hands-on Learning</p>
+            </div>
+        </div>
+        <div class="ws-gallery-item" onclick="openLightbox(this)">
+            <img src="{{ url_for('static', filename='images/UMC09855.jpg') }}" alt="Founder & HOD Talk">
+            <div class="ws-gallery-overlay">
+                <span><i class="fa-solid fa-expand"></i></span>
+                <p>Founder & HOD Talk</p>
+            </div>
+        </div>
+        <div class="ws-gallery-item ws-gallery-wide" onclick="openLightbox(this)">
+            <img src="{{ url_for('static', filename='images/UMC09871 (1).jpg') }}" alt="Team & Participants">
+            <div class="ws-gallery-overlay">
+                <span><i class="fa-solid fa-expand"></i></span>
+                <p>Team & Participants</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Lightbox -->
+<div class="ws-lightbox" id="ws-lightbox">
+    <button class="ws-lightbox-close" onclick="closeLightbox()"><i class="fa-solid fa-xmark"></i></button>
+    <img id="ws-lightbox-img" src="" alt="">
+</div>
+
+<script>
+    function openLightbox(el) {
+        const img = el.querySelector('img');
+        const lb = document.getElementById('ws-lightbox');
+        document.getElementById('ws-lightbox-img').src = img.src;
+        lb.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+        const lb = document.getElementById('ws-lightbox');
+        lb.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    document.getElementById('ws-lightbox').addEventListener('click', function(e) {
+        if (e.target === this) closeLightbox();
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+
 {% endblock %}

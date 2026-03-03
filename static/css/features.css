@@ -223,7 +223,7 @@
 
 /* ==================== EVENT COUNTDOWN (#10) ==================== */
 .countdown-section {
-    padding: 4rem 2rem;
+    padding: 5rem 2rem;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -234,17 +234,175 @@
     margin-bottom: 0.5rem;
 }
 
-.countdown-event-name {
-    font-size: 1.2rem;
+.countdown-subtitle {
+    font-size: 1.1rem;
     color: #666;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     font-family: var(--font-body);
 }
 
-[data-theme="dark"] .countdown-event-name {
+[data-theme="dark"] .countdown-subtitle {
     color: #aaa;
 }
 
+/* ---- Event Card (Doodle Style) ---- */
+.event-card {
+    background: var(--card-bg);
+    border: 2px solid #000;
+    border-radius: 12px;
+    padding: 2.5rem 2rem 2rem;
+    max-width: 560px;
+    margin: 0 auto;
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, border-color 0.3s;
+    position: relative;
+    text-align: center;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 8px 8px 0px rgba(255, 59, 59, 0.12);
+}
+
+[data-theme="dark"] .event-card {
+    border-color: #333;
+}
+
+[data-theme="dark"] .event-card:hover {
+    border-color: var(--primary-color);
+}
+
+.event-card-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #27ae60;
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: bold;
+    font-size: 0.8rem;
+    padding: 0.35rem 1rem;
+    border-radius: 8px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+}
+
+.event-card-status i {
+    font-size: 0.75rem;
+}
+
+.event-card-title {
+    font-family: var(--font-header);
+    font-size: 1.6rem;
+    color: var(--text-color, #222);
+    margin: 0 0 0.3rem;
+    letter-spacing: 0.5px;
+}
+
+[data-theme="dark"] .event-card-title {
+    color: #eee;
+}
+
+.event-card-tagline {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: #777;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+[data-theme="dark"] .event-card-tagline {
+    color: #999;
+}
+
+/* Meta items */
+.event-card-meta {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.event-meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: #555;
+    font-weight: 600;
+}
+
+.event-meta-item i {
+    color: var(--primary-color);
+    font-size: 0.85rem;
+}
+
+[data-theme="dark"] .event-meta-item {
+    color: #bbb;
+}
+
+/* Highlight tags */
+.event-card-highlights {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.8rem;
+}
+
+.event-highlight-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: var(--card-bg);
+    border: 2px solid #000;
+    border-radius: 8px;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.8rem;
+    font-family: var(--font-body);
+    font-weight: bold;
+    color: var(--text-color, #222);
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.event-highlight-tag:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
+}
+
+.event-highlight-tag i {
+    color: var(--primary-color);
+    font-size: 0.75rem;
+}
+
+[data-theme="dark"] .event-highlight-tag {
+    border-color: #444;
+    color: #ddd;
+}
+
+[data-theme="dark"] .event-highlight-tag:hover {
+    border-color: var(--primary-color);
+}
+
+/* Action buttons */
+.event-card-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.event-card-actions .doodle-btn {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.8rem;
+}
+
+/* Legacy countdown styles (kept for reuse) */
 .countdown-container {
     display: flex;
     justify-content: center;
@@ -291,42 +449,6 @@
 
 [data-theme="dark"] .countdown-label {
     color: #888;
-}
-
-.countdown-cta {
-    margin-top: 1.5rem;
-}
-
-.countdown-cta .add-cal-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.7rem 1.5rem;
-    background: transparent;
-    border: 2px solid var(--primary-color);
-    color: var(--primary-color);
-    font-family: var(--font-body);
-    font-weight: bold;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 0.95rem;
-    transition: all 0.2s;
-    text-decoration: none;
-}
-
-.countdown-cta .add-cal-btn:hover {
-    background: var(--primary-color);
-    color: #fff;
-}
-
-/* Pulse animation on the countdown numbers */
-@keyframes countdownPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-
-.countdown-box.pulse .countdown-number {
-    animation: countdownPulse 0.5s ease;
 }
 
 /* ==================== LEARNING ROADMAP / SKILL TREE (#4) ==================== */
@@ -558,7 +680,7 @@
         font-size: 1.5rem;
     }
 
-    .countdown-event-name {
+    .countdown-subtitle {
         font-size: 0.92rem;
         padding: 0 0.5rem;
     }
@@ -576,6 +698,44 @@
 
     .countdown-number {
         font-size: 1.8rem;
+    }
+
+    /* Event card responsive */
+    .event-card {
+        padding: 2rem 1.2rem 1.5rem;
+        margin: 0 0.5rem;
+    }
+
+    .event-card-title {
+        font-size: 1.3rem;
+    }
+
+    .event-card-tagline {
+        font-size: 0.88rem;
+    }
+
+    .event-card-meta {
+        gap: 0.6rem;
+    }
+
+    .event-meta-item {
+        font-size: 0.8rem;
+    }
+
+    .event-highlight-tag {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.7rem;
+    }
+
+    .event-card-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .event-card-actions .doodle-btn {
+        justify-content: center;
+        font-size: 0.85rem;
+        padding: 0.65rem 1.2rem;
     }
 
     .countdown-label {
