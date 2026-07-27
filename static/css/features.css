@@ -247,14 +247,14 @@
 
 /* ---- Event Card (Doodle Style) ---- */
 .event-card {
-    background: var(--card-bg);
+    background: linear-gradient(135deg, rgba(255,59,59,0.08), rgba(255,255,255,0.95));
     border: 2px solid #000;
-    border-radius: 12px;
+    border-radius: 18px;
     padding: 2.5rem 2rem 2rem;
-    max-width: 560px;
+    max-width: 620px;
     margin: 0 auto;
-    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, border-color 0.3s;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
     position: relative;
     text-align: center;
 }
@@ -262,7 +262,7 @@
 .event-card:hover {
     transform: translateY(-5px);
     border-color: var(--primary-color);
-    box-shadow: 8px 8px 0px rgba(255, 59, 59, 0.12);
+    box-shadow: 10px 10px 0px rgba(255, 59, 59, 0.16);
 }
 
 [data-theme="dark"] .event-card {
@@ -324,6 +324,9 @@
     gap: 1.2rem;
     flex-wrap: wrap;
     margin-bottom: 1.5rem;
+    padding: 1rem 0;
+    border-top: 1px dashed rgba(0,0,0,0.2);
+    border-bottom: 1px dashed rgba(0,0,0,0.2);
 }
 
 .event-meta-item {
@@ -395,6 +398,7 @@
     justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
+    margin-top: 0.5rem;
 }
 
 .event-card-actions .doodle-btn {
